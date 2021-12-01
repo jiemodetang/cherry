@@ -4,6 +4,7 @@ import { BoxProps, Box, Flex, FlexProps } from '@pancakeswap/uikit'
 import Container from 'components/Layout/Container'
 import CurvedDivider from './CurvedDivider'
 import { ClipFill, DividerFill } from './types'
+import bg from './svg/bh.png'
 
 interface PageSectionProps extends BackgroundColorProps {
   svgFill?: string
@@ -28,8 +29,8 @@ const BackgroundColor = styled(Flex)<BackgroundColorProps>`
   flex-direction: column;
   align-items: center;
   z-index: ${({ index }) => index - 1};
-  background: ${({ background, theme }) => background || theme.colors.background};
   padding: ${({ getPadding }) => getPadding()};
+  background-image:url(${bg})
 `
 
 const ChildrenWrapper = styled(Container)`

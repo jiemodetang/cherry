@@ -1,13 +1,15 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Flex, Heading, Button } from '@pancakeswap/uikit'
+import { Flex, Heading, Button,Image } from '@pancakeswap/uikit'
 import { useWeb3React } from '@web3-react/core'
 import { useTranslation } from 'contexts/Localization'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import useTheme from 'hooks/useTheme'
 import { SlideSvgDark, SlideSvgLight } from './SlideSvg'
 import CompositeImage, { getSrcSet, CompositeImageProps } from './CompositeImage'
+import lf from '../img/lf.png'
+import lr from '../img/lr.png'
 
 const flyingAnim = () => keyframes`
   from {
@@ -74,7 +76,9 @@ const StarsWrapper = styled.div`
     animation-delay: 0.33s;
   }
 `
-
+const ImageWrapper = styled.div`
+  margin-bottom: 44px;
+`
 const imagePath = '/images/home/lunar-bunny/'
 const imageSrc = 'bunny'
 
@@ -106,16 +110,19 @@ const Hero = () => {
         id="homepage-hero"
       >
         <Flex flex="1" flexDirection="column">
-          <Heading scale="xxl" color="secondary" mb="24px">
+        <ImageWrapper>
+          <Image src={lf} alt="all the bunnies" width={606} height={224} />
+         </ImageWrapper>
+          {/* <Heading scale="xxl" color="secondary" mb="24px">
             {t('The moon is made of pancakes.')}
           </Heading>
           <Heading scale="md" mb="24px">
             {t('Trade, earn, and win crypto on the most popular decentralized platform in the galaxy.')}
-          </Heading>
+          </Heading> */}
           <Flex>
-            {!account && <ConnectWalletButton mr="8px" />}
+            {!account && <ConnectWalletButton mr="8px"  className='cocoButton7166B0' />}
             <Link to="/swap">
-              <Button variant={!account ? 'secondary' : 'primary'}>{t('Trade Now')}</Button>
+              <Button  className=" cocoButton7166B0NoBorder" variant={!account ? 'secondary' : 'primary'}>{t('Trade Now')}</Button>
             </Link>
           </Flex>
         </Flex>
@@ -127,9 +134,11 @@ const Hero = () => {
           position="relative"
         >
           <BunnyWrapper>
-            <img src={`${imagePath}${imageSrc}.png`} srcSet={getSrcSet(imagePath, imageSrc)} alt={t('Lunar bunny')} />
+          <Image src={lr} alt="all the bunnies" width={688} height={560} />
           </BunnyWrapper>
+          
           <StarsWrapper>
+          
             <CompositeImage {...starsImage} />
           </StarsWrapper>
         </Flex>
