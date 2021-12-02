@@ -1,13 +1,13 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Flex, Heading, Button,Image } from '@pancakeswap/uikit'
+import { Flex, Button,Image } from '@pancakeswap/uikit'
 import { useWeb3React } from '@web3-react/core'
 import { useTranslation } from 'contexts/Localization'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import useTheme from 'hooks/useTheme'
 import { SlideSvgDark, SlideSvgLight } from './SlideSvg'
-import CompositeImage, { getSrcSet, CompositeImageProps } from './CompositeImage'
+import CompositeImage, {  CompositeImageProps } from './CompositeImage'
 import lf from '../img/lf.png'
 import lr from '../img/lr.png'
 
@@ -79,8 +79,8 @@ const StarsWrapper = styled.div`
 const ImageWrapper = styled.div`
   margin-bottom: 44px;
 `
-const imagePath = '/images/home/lunar-bunny/'
-const imageSrc = 'bunny'
+// const imagePath = '/images/home/lunar-bunny/'
+// const imageSrc = 'bunny'
 
 const starsImage: CompositeImageProps = {
   path: '/images/home/lunar-bunny/',

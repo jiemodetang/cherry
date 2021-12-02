@@ -7,6 +7,7 @@ import { useTranslation } from 'contexts/Localization'
 const StyledInput = styled(Input)`
   border-radius: 16px;
   margin-left: auto;
+  color:#D53B79;
 `
 
 const InputWrapper = styled.div`
@@ -38,7 +39,7 @@ const SearchInput: React.FC<Props> = ({ onChange: onChangeCallback, placeholder 
 
   return (
     <InputWrapper>
-      <StyledInput value={searchText} onChange={onChange} placeholder={t(placeholder)} />
+      <StyledInput value={searchText} onChange={onChange} placeholder={t(placeholder)} className='inputD84D84' />
     </InputWrapper>
   )
 }

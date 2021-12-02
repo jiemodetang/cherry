@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Text, PancakeToggle, Toggle, Flex, Modal, InjectedModalProps, ThemeSwitcher,Image } from '@pancakeswap/uikit'
+import { Text, Toggle, Flex, Modal, InjectedModalProps, ThemeSwitcher,Image } from '@pancakeswap/uikit'
 import {
   useAudioModeManager,
   useExpertModeManager,
@@ -14,7 +14,6 @@ import QuestionHelper from '../../QuestionHelper'
 import TransactionSettings from './TransactionSettings'
 import ExpertModal from './ExpertModal'
 import GasSettings from './GasSettings'
-import i from './i.png'
 
 const ScrollableContainer = styled(Flex)`
   flex-direction: column;
@@ -118,12 +117,12 @@ const SettingsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
           </Flex>
           <Toggle checked={audioPlay} onChange={toggleSetAudioMode} scale="md"
 
-          startIcon={(isActive = false) => (
-            <Image src={i} width={20} height={20} />    
+          startIcon={() => (
+            <Image src="/images/mImg/i.png" width={20} height={20} />    
           )}
                  checkedColor="failure"
-            endIcon={(isActive = false) => (
-              <Image src={i} width={20} height={20} />     
+            endIcon={() => (
+              <Image src="/images/mImg/i.png" width={20} height={20} />     
               )} />
         </Flex>
       </ScrollableContainer>

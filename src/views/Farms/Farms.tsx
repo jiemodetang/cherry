@@ -2,7 +2,7 @@ import React, { useEffect, useCallback, useState, useMemo, useRef } from 'react'
 import { Route, useRouteMatch, useLocation, NavLink } from 'react-router-dom'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
-import { Image, Heading, RowType, Toggle, Text, Button, ArrowForwardIcon, Flex } from '@pancakeswap/uikit'
+import {  Heading, RowType, Toggle, Text, Button, ArrowForwardIcon, Flex } from '@pancakeswap/uikit'
 import { ChainId } from '@pancakeswap/sdk'
 import styled from 'styled-components'
 import FlexLayout from 'components/Layout/Flex'
@@ -96,11 +96,7 @@ const ViewControls = styled.div`
   }
 `
 
-const StyledImage = styled(Image)`
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 58px;
-`
+
 const NUMBER_OF_FARMS_VISIBLE = 12
 
 const getDisplayApr = (cakeRewardsApr?: number, lpRewardsApr?: number) => {
@@ -369,19 +365,19 @@ const Farms: React.FC = () => {
 
   return (
     <>
-      <PageHeader>
-        <Heading as="h1" scale="xxl" color="secondary" mb="24px">
+      <PageHeader background="url(/images/mImg/blg.png)">
+        <Heading as="h1" scale="xxl" color="secondary" mb="24px" className='colorD53B79'>
           {t('Farms')}
         </Heading>
-        <Heading scale="lg" color="text">
+        <Heading scale="lg" color="text" style={{color:"#D080A0"}}>
           {t('Stake LP tokens to earn.')}
         </Heading>
         <NavLink exact activeClassName="active" to="/farms/auction" id="lottery-pot-banner">
           <Button p="0" variant="text">
-            <Text color="primary" bold fontSize="16px" mr="4px">
+            <Text color="primary" bold fontSize="16px" mr="4px"  style={{color:'#7165B0'}}>
               {t('Community Auctions')}
             </Text>
-            <ArrowForwardIcon color="primary" />
+            <ArrowForwardIcon color="#7165B0"  style={{color:'#7165B0'}}/>
           </Button>
         </NavLink>
       </PageHeader>
@@ -395,6 +391,7 @@ const Farms: React.FC = () => {
                 checked={stakedOnly}
                 onChange={() => setStakedOnly(!stakedOnly)}
                 scale="sm"
+                checkedColor="failure"
               />
               <Text> {t('Staked only')}</Text>
             </ToggleWrapper>
@@ -402,7 +399,7 @@ const Farms: React.FC = () => {
           </ViewControls>
           <FilterContainer>
             <LabelWrapper>
-              <Text textTransform="uppercase">{t('Sort by')}</Text>
+              <Text textTransform="uppercase" >{t('Sort by')}</Text>
               <Select
                 options={[
                   {
@@ -427,10 +424,11 @@ const Farms: React.FC = () => {
                   },
                 ]}
                 onOptionChange={handleSortOptionChange}
+                className='inputD84D84'
               />
             </LabelWrapper>
             <LabelWrapper style={{ marginLeft: 16 }}>
-              <Text textTransform="uppercase">{t('Search')}</Text>
+              <Text textTransform="uppercase" >{t('Search')}</Text>
               <SearchInput onChange={handleChangeQuery} placeholder="Search Farms" />
             </LabelWrapper>
           </FilterContainer>
@@ -441,8 +439,8 @@ const Farms: React.FC = () => {
             <Loading />
           </Flex>
         )}
-        <div ref={observerRef} />
-        <StyledImage src="/images/decorations/3dpan.png" alt="Pancake illustration" width={120} height={103} />
+        <div ref={observerRef}  />
+        {/* <StyledImage src="/images/decorations/3dpan.png" alt="Pancake illustration" width={120} height={103} /> */}
       </Page>
     </>
   )

@@ -82,6 +82,7 @@ const DropDownList = styled.ul`
   margin: 0;
   box-sizing: border-box;
   z-index: ${({ theme }) => theme.zIndices.dropdown};
+  background-color:#F8E5ED !important;
 `
 
 const ListItem = styled.li`
@@ -140,16 +141,16 @@ const Select: React.FunctionComponent<SelectProps> = ({
 
   return (
     <DropDownContainer isOpen={isOpen} {...props}>
-      <DropDownHeader onClick={toggling}>
-        <Text>{options[selectedOptionIndex].label}</Text>
+      <DropDownHeader onClick={toggling}  className='inputD84D84'>
+        <Text  className='colorD53B79'>{options[selectedOptionIndex].label}</Text>
       </DropDownHeader>
-      <ArrowDropDownIcon color="text" onClick={toggling} />
+      <ArrowDropDownIcon color="text" onClick={toggling} className='inputD84D84'/>
       <DropDownListContainer>
         <DropDownList ref={dropdownRef}>
           {options.map((option, index) =>
             index !== selectedOptionIndex ? (
-              <ListItem onClick={onOptionClicked(index)} key={option.label}>
-                <Text>{option.label}</Text>
+              <ListItem onClick={onOptionClicked(index)} key={option.label} className='inputD84D84'>
+                <Text >{option.label}</Text>
               </ListItem>
             ) : null,
           )}

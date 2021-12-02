@@ -32,6 +32,9 @@ const GlobalStyle = createGlobalStyle`
   .colorD53B79{
     color:#D53B79;
   }
+  .color7166B0{
+    color:#7166B0
+  }
   .bottonD53B79{
     color: #D53B79;
     background: #F0F0F0;
@@ -46,7 +49,7 @@ const GlobalStyle = createGlobalStyle`
   .inputD84D84{
     background-color:#F8E5ED !important
   }
-  .inputD84D84:focus:not(:disabled){
+  .inputD84D84:focus:not(:disabled){ 
     border: 1px solid #D84D84 !important;
     box-shadow: 0px 0px 0px 1px #EBCAD6, 0px 0px 0px 4px #f7eaef  !important;
   }
