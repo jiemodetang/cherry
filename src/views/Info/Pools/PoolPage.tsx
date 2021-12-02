@@ -150,7 +150,7 @@ const PoolPage: React.FC<RouteComponentProps<{ address: string }>> = ({
               </Flex>
               <Flex>
                 <Link to={`/add/${poolData.token0.address}/${poolData.token1.address}`}>
-                  <Button mr="8px" variant="secondary">
+                  <Button mr="8px" variant="secondary"  className='cocoButton7166B0'>
                     {t('Add Liquidity')}
                   </Button>
                 </Link>

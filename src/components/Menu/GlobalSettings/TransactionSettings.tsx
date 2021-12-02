@@ -97,6 +97,7 @@ const SlippageTabs = () => {
               setSlippageInput('')
               setUserSlippageTolerance(10)
             }}
+            className={userSlippageTolerance === 10?'bottonD53B79Border':'bottonD53B79'}
             variant={userSlippageTolerance === 10 ? 'primary' : 'tertiary'}
           >
             0.1%
@@ -109,6 +110,7 @@ const SlippageTabs = () => {
               setSlippageInput('')
               setUserSlippageTolerance(50)
             }}
+            className={userSlippageTolerance === 50?'bottonD53B79Border':'bottonD53B79'}
             variant={userSlippageTolerance === 50 ? 'primary' : 'tertiary'}
           >
             0.5%
@@ -121,6 +123,7 @@ const SlippageTabs = () => {
               setSlippageInput('')
               setUserSlippageTolerance(100)
             }}
+            className={userSlippageTolerance === 100?'bottonD53B79Border':'bottonD53B79'}
             variant={userSlippageTolerance === 100 ? 'primary' : 'tertiary'}
           >
             1.0%
@@ -136,6 +139,7 @@ const SlippageTabs = () => {
                 onBlur={() => {
                   parseCustomSlippage((userSlippageTolerance / 100).toFixed(2))
                 }}
+                className='inputD84D84'
                 onChange={(event) => {
                   if (event.currentTarget.validity.valid) {
                     parseCustomSlippage(event.target.value.replace(/,/g, '.'))
@@ -175,6 +179,7 @@ const SlippageTabs = () => {
               scale="sm"
               inputMode="numeric"
               pattern="^[0-9]+$"
+              className='inputD84D84'
               color={deadlineError ? 'red' : undefined}
               onBlur={() => {
                 parseCustomDeadline((ttl / 60).toString())

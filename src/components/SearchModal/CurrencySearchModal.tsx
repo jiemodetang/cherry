@@ -128,7 +128,8 @@ export default function CurrencySearchModal({
               scale="sm"
               variant="text"
               onClick={() => setModalView(CurrencyModalView.manage)}
-              className="list-token-manage-button"
+              // className="list-token-manage-button"
+              className='cocoButton7166B0NoBorder'
             >
               {t('Manage Tokens')}
             </Button>

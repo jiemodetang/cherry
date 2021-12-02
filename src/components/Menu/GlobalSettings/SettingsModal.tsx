@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Text, PancakeToggle, Toggle, Flex, Modal, InjectedModalProps, ThemeSwitcher } from '@pancakeswap/uikit'
+import { Text, PancakeToggle, Toggle, Flex, Modal, InjectedModalProps, ThemeSwitcher,Image } from '@pancakeswap/uikit'
 import {
   useAudioModeManager,
   useExpertModeManager,
@@ -14,6 +14,7 @@ import QuestionHelper from '../../QuestionHelper'
 import TransactionSettings from './TransactionSettings'
 import ExpertModal from './ExpertModal'
 import GasSettings from './GasSettings'
+import i from './i.png'
 
 const ScrollableContainer = styled(Flex)`
   flex-direction: column;
@@ -100,6 +101,7 @@ const SettingsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
             id="toggle-disable-multihop-button"
             checked={singleHopOnly}
             scale="md"
+            checkedColor="failure"
             onChange={() => {
               setSingleHopOnly(!singleHopOnly)
             }}
@@ -114,7 +116,15 @@ const SettingsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
               ml="4px"
             />
           </Flex>
-          <PancakeToggle checked={audioPlay} onChange={toggleSetAudioMode} scale="md" />
+          <Toggle checked={audioPlay} onChange={toggleSetAudioMode} scale="md"
+
+          startIcon={(isActive = false) => (
+            <Image src={i} width={20} height={20} />    
+          )}
+                 checkedColor="failure"
+            endIcon={(isActive = false) => (
+              <Image src={i} width={20} height={20} />     
+              )} />
         </Flex>
       </ScrollableContainer>
     </Modal>

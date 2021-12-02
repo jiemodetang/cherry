@@ -32,7 +32,30 @@ const GlobalStyle = createGlobalStyle`
   .colorD53B79{
     color:#D53B79;
   }
-
+  .bottonD53B79{
+    color: #D53B79;
+    background: #F0F0F0;
+    border-radius: 16px;
+  }
+  .bottonD53B79Border{
+    background: #D53B79;
+    box-shadow: 0px 1px 0px 0px #8B264F;
+    border-radius: 16px;
+    color: #FFFFFF;
+  }
+  .inputD84D84{
+    background-color:#F8E5ED !important
+  }
+  .inputD84D84:focus:not(:disabled){
+    border: 1px solid #D84D84 !important;
+    box-shadow: 0px 0px 0px 1px #EBCAD6, 0px 0px 0px 4px #f7eaef  !important;
+  }
+  .ToggleF8E5ED{
+    background-color: #F8E5ED !important;
+  }
+  .ToggleF8E5EDOpen{
+    background-color: #D53B79 !important;
+  }
 
 `
 

@@ -55,6 +55,7 @@ const ExpertModal: React.FC<ExpertModalProps> = ({ setShowConfirmExpertModal, se
             }
           }
         }}
+        className='cocoButton7166B0'
       >
         {t('Turn On Expert Mode')}
       </Button>
@@ -63,6 +64,7 @@ const ExpertModal: React.FC<ExpertModalProps> = ({ setShowConfirmExpertModal, se
         onClick={() => {
           setShowConfirmExpertModal(false)
         }}
+        className='cocoButton7166B0NoBorder'
       >
         {t('Cancel')}
       </Button>

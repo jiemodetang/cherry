@@ -133,6 +133,7 @@ function CurrencySearch({
               ref={inputRef as RefObject<HTMLInputElement>}
               onChange={handleInput}
               onKeyDown={handleEnter}
+              className='inputD84D84'
             />
           </Row>
           {showCommonBases && (
@@ -162,7 +163,7 @@ function CurrencySearch({
           </Box>
         ) : (
           <Column style={{ padding: '20px', height: '100%' }}>
-            <Text color="textSubtle" textAlign="center" mb="20px">
+            <Text color="textSubtle" textAlign="center" mb="20px" className='colorD53B79'>
               {t('No results found.')}
             </Text>
           </Column>

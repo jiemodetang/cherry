@@ -152,7 +152,7 @@ export default function PoolFinder() {
                   <AutoColumn gap="sm" justify="center">
                     <Text textAlign="center">{t('You don’t have liquidity in this pool yet.')}</Text>
                     <StyledInternalLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
-                      <Text textAlign="center">{t('Add Liquidity')}</Text>
+                      <Text textAlign="center"  className='cocoButton7166B0'>{t('Add Liquidity')}</Text>
                     </StyledInternalLink>
                   </AutoColumn>
                 </LightCard>
