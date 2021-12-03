@@ -74,8 +74,10 @@ const RoiCalculatorFooter: React.FC<RoiCalculatorFooterProps> = ({
 
   return (
     <Footer p="16px" flexDirection="column">
-      <ExpandableLabel expanded={isExpanded} onClick={() => setIsExpanded((prev) => !prev)}>
-        {isExpanded ? t('Hide') : t('Details')}
+      <ExpandableLabel expanded={isExpanded} onClick={() => setIsExpanded((prev) => !prev)}> 
+        <span className='color7166B0'>
+         {isExpanded ? t('Hide') : t('Details')}
+        </span>
       </ExpandableLabel>
       {isExpanded && (
         <Box px="8px">
@@ -151,8 +153,8 @@ const RoiCalculatorFooter: React.FC<RoiCalculatorFooterProps> = ({
               </li>
             )}
           </BulletList>
-          <Flex justifyContent="center" mt="24px">
-            <LinkExternal href={linkHref}>{linkLabel}</LinkExternal>
+          <Flex justifyContent="center" mt="24px"    className='colorD53B79'>
+            <LinkExternal href={linkHref} className='linkExternal'>{linkLabel}</LinkExternal>
           </Flex>
         </Box>
       )}

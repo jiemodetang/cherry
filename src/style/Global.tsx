@@ -36,12 +36,16 @@ const GlobalStyle = createGlobalStyle`
       }
   }
   .color7166B0{
-    color:#7166B0
+    color:#7166B0;
+    svg{
+      fill:#7166B0
+    }
   }
   .bottonD53B79{
     color: #D53B79;
     background: #F0F0F0;
     border-radius: 16px;
+   
   }
   .bottonD53B79Border{
     background: #D53B79;
@@ -62,7 +66,11 @@ const GlobalStyle = createGlobalStyle`
   .ToggleF8E5EDOpen{
     background-color: #D53B79 !important;
   }
-
+  .linkExternal{
+    svg{
+      fill:#D53B79
+    }
+  }
 `
 
 export default GlobalStyle

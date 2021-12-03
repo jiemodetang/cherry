@@ -158,6 +158,7 @@ const RoiCalculatorModal: React.FC<RoiCalculatorModalProps> = ({
             onUserInput={onUserInput}
             switchEditingUnits={toggleEditingCurrency}
             onFocus={onBalanceFocus}
+            className='inputD84D84'
           />
           <Flex justifyContent="space-between" mt="8px">
             <Button
@@ -166,6 +167,7 @@ const RoiCalculatorModal: React.FC<RoiCalculatorModalProps> = ({
               width="68px"
               variant="tertiary"
               onClick={() => setPrincipalFromUSDValue('100')}
+              className='color7166B0'
             >
               $100
             </Button>
@@ -175,6 +177,7 @@ const RoiCalculatorModal: React.FC<RoiCalculatorModalProps> = ({
               width="68px"
               variant="tertiary"
               onClick={() => setPrincipalFromUSDValue('1000')}
+              className='color7166B0'
             >
               $1000
             </Button>
@@ -187,6 +190,7 @@ const RoiCalculatorModal: React.FC<RoiCalculatorModalProps> = ({
               onClick={() =>
                 setPrincipalFromUSDValue(getBalanceNumber(stakingTokenBalance.times(stakingTokenPrice)).toString())
               }
+              className='color7166B0'
             >
               {t('My Balance').toLocaleUpperCase()}
             </Button>
@@ -199,11 +203,11 @@ const RoiCalculatorModal: React.FC<RoiCalculatorModalProps> = ({
             {t('Staked for')}
           </Text>
           <FullWidthButtonMenu activeIndex={stakingDuration} onItemClick={setStakingDuration} scale="sm">
-            <ButtonMenuItem variant="tertiary">{t('1D')}</ButtonMenuItem>
-            <ButtonMenuItem variant="tertiary">{t('7D')}</ButtonMenuItem>
-            <ButtonMenuItem variant="tertiary">{t('30D')}</ButtonMenuItem>
-            <ButtonMenuItem variant="tertiary">{t('1Y')}</ButtonMenuItem>
-            <ButtonMenuItem variant="tertiary">{t('5Y')}</ButtonMenuItem>
+            <ButtonMenuItem variant="tertiary" className={stakingDuration===0?'bottonD53B79Border':'bottonD53B79'}>{t('1D')}</ButtonMenuItem>
+            <ButtonMenuItem variant="tertiary" className={stakingDuration===1?'bottonD53B79Border':'bottonD53B79'}>{t('7D')}</ButtonMenuItem>
+            <ButtonMenuItem variant="tertiary" className={stakingDuration===2?'bottonD53B79Border':'bottonD53B79'}>{t('30D')}</ButtonMenuItem>
+            <ButtonMenuItem variant="tertiary" className={stakingDuration===3?'bottonD53B79Border':'bottonD53B79'}>{t('1Y')}</ButtonMenuItem>
+            <ButtonMenuItem variant="tertiary" className={stakingDuration===4?'bottonD53B79Border':'bottonD53B79'}>{t('5Y')}</ButtonMenuItem>
           </FullWidthButtonMenu>
           {autoCompoundFrequency === 0 && (
             <>
@@ -221,10 +225,10 @@ const RoiCalculatorModal: React.FC<RoiCalculatorModalProps> = ({
                     onItemClick={setCompoundingFrequency}
                     scale="sm"
                   >
-                    <ButtonMenuItem>{t('1D')}</ButtonMenuItem>
-                    <ButtonMenuItem>{t('7D')}</ButtonMenuItem>
-                    <ButtonMenuItem>{t('14D')}</ButtonMenuItem>
-                    <ButtonMenuItem>{t('30D')}</ButtonMenuItem>
+                    <ButtonMenuItem className={activeCompoundingIndex===0?'bottonD53B79Border':'bottonD53B79'}>{t('1D')}</ButtonMenuItem>
+                    <ButtonMenuItem className={activeCompoundingIndex===0?'bottonD53B79Border':'bottonD53B79'}>{t('7D')}</ButtonMenuItem>
+                    <ButtonMenuItem className={activeCompoundingIndex===0?'bottonD53B79Border':'bottonD53B79'}>{t('14D')}</ButtonMenuItem>
+                    <ButtonMenuItem className={activeCompoundingIndex===0?'bottonD53B79Border':'bottonD53B79'}>{t('30D')}</ButtonMenuItem>
                   </FullWidthButtonMenu>
                 </Flex>
               </Flex>
@@ -250,6 +254,7 @@ const RoiCalculatorModal: React.FC<RoiCalculatorModalProps> = ({
         linkLabel={linkLabel}
         linkHref={linkHref}
         performanceFee={performanceFee}
+     
       />
     </StyledModal>
   )

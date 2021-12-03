@@ -28,7 +28,7 @@ const getBoxShadow = ({ isWarning = false, theme }) => {
 const StyledTokenInput = styled.div<InputProps>`
   display: flex;
   flex-direction: column;
-  background-color: ${({ theme }) => theme.colors.input};
+  background-color: #F8E5ED;
   border-radius: 16px;
   box-shadow: ${getBoxShadow};
   color: ${({ theme }) => theme.colors.text};
@@ -98,8 +98,9 @@ const ModalInput: React.FC<ModalInputProps> = ({
             onChange={onChange}
             placeholder="0"
             value={value}
+            className='inputD84D84'
           />
-          <Button scale="sm" onClick={onSelectMax} mr="8px">
+          <Button scale="sm" onClick={onSelectMax} mr="8px" className='cocoButton7166B0'>
             {t('Max')}
           </Button>
           <Text fontSize="16px">{symbol}</Text>

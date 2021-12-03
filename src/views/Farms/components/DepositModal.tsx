@@ -131,8 +131,9 @@ const DepositModal: React.FC<DepositModalProps> = ({
           </IconButton>
         </AnnualRoiContainer>
       </Flex>
+
       <ModalActions>
-        <Button variant="secondary" onClick={onDismiss} width="100%" disabled={pendingTx}>
+        <Button variant="secondary" onClick={onDismiss} width="100%" disabled={pendingTx} className='cocoButton7166B0NoBorder'>
           {t('Cancel')}
         </Button>
         <Button
@@ -140,6 +141,7 @@ const DepositModal: React.FC<DepositModalProps> = ({
           disabled={
             pendingTx || !lpTokensToStake.isFinite() || lpTokensToStake.eq(0) || lpTokensToStake.gt(fullBalanceNumber)
           }
+          className='cocoButton7166B0'
           onClick={async () => {
             setPendingTx(true)
             try {
@@ -160,7 +162,7 @@ const DepositModal: React.FC<DepositModalProps> = ({
           {pendingTx ? t('Confirming') : t('Confirm')}
         </Button>
       </ModalActions>
-      <LinkExternal href={addLiquidityUrl} style={{ alignSelf: 'center' }}>
+      <LinkExternal href={addLiquidityUrl} style={{ alignSelf: 'center' }} className="color7166B0">
         {t('Get %symbol%', { symbol: tokenName })}
       </LinkExternal>
     </Modal>

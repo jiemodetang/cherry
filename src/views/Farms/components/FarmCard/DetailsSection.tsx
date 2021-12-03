@@ -16,10 +16,6 @@ const Wrapper = styled.div`
   margin-top: 24px;
 `
 
-const StyledLinkExternal = styled(LinkExternal)`
-  font-weight: 400;
-  color:#7166B0
-`
 
 const DetailsSection: React.FC<ExpandableSectionProps> = ({
   bscScanAddress,
@@ -38,10 +34,10 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
         {totalValueFormatted ? <Text>{totalValueFormatted}</Text> : <Skeleton width={75} height={25} />}
       </Flex>
       {!removed && (
-        <StyledLinkExternal href={addLiquidityUrl}>{t('Get %symbol%', { symbol: lpLabel })}</StyledLinkExternal>
+        <LinkExternal href={addLiquidityUrl} className='color7166B0'>{t('Get %symbol%', { symbol: lpLabel })}</LinkExternal>
       )}
-      <StyledLinkExternal href={bscScanAddress}>{t('View Contract')}</StyledLinkExternal>
-      <StyledLinkExternal href={infoAddress}>{t('See Pair Info')}</StyledLinkExternal>
+      <LinkExternal href={bscScanAddress} className='color7166B0'>{t('View Contract')}</LinkExternal>
+      <LinkExternal href={infoAddress} className='color7166B0' >{t('See Pair Info')}</LinkExternal>
     </Wrapper>
   )
 }
