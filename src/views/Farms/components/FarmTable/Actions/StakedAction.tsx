@@ -228,7 +228,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
         </Text>
       </ActionTitles>
       <ActionContent>
-        <Button width="100%" disabled={requestedApproval} onClick={handleApprove} variant="secondary">
+        <Button width="100%" disabled={requestedApproval} onClick={handleApprove} variant="secondary" className='cocoButton7166B0NoBorder'>
           {t('Enable')}
         </Button>
       </ActionContent>

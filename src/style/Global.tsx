@@ -71,6 +71,11 @@ const GlobalStyle = createGlobalStyle`
       fill:#D53B79
     }
   }
+  button{
+    svg {
+      fill:#7166B0 !important;
+    }
+  }
 `
 
 export default GlobalStyle
