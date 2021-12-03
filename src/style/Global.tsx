@@ -31,6 +31,9 @@ const GlobalStyle = createGlobalStyle`
   }
   .colorD53B79{
     color:#D53B79;
+      a{
+        color:#D53B79;
+      }
   }
   .color7166B0{
     color:#7166B0

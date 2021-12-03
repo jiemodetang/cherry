@@ -79,7 +79,7 @@ const HarvestActions: React.FC<HarvestActionsProps> = ({
           </>
         )}
       </Flex>
-      <Button disabled={!hasEarnings} onClick={onPresentCollect}>
+      <Button disabled={!hasEarnings} onClick={onPresentCollect}   className='cocoButton7166B0'>
         {isCompoundPool ? t('Collect') : t('Harvest')}
       </Button>
     </Flex>

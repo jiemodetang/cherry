@@ -2,7 +2,7 @@ import throttle from "lodash/throttle";
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from 'react-router-dom'
 import styled from "styled-components";
-import  { Flex ,Box,useMatchBreakpoints,CakePrice,SubMenuItems,Image,} from '@pancakeswap/uikit'
+import  { Flex ,Box,useMatchBreakpoints,Text,SubMenuItems,Image,} from '@pancakeswap/uikit'
 import { MENU_HEIGHT, MOBILE_MENU_HEIGHT, TOP_BANNER_HEIGHT, TOP_BANNER_HEIGHT_MOBILE } from "./config";
 import LangSelector from "./LangSelector/LangSelector";
 import {DropdownMenu} from '../DropdownMenu/index'
@@ -161,7 +161,11 @@ const UikitMenu= ({
           <Flex alignItems="center">
             {!isMobile && (
               <Box mr="12px">
-                <CakePrice cakePriceUsd={cakePriceUsd} />
+                    <div style={{display:'-webkit-box',marginRight:'18px'}}>
+                     <Image src='/images/mImg/uuu.png' width={30} height={30} />
+                       <Text bold>{`$${cakePriceUsd.toFixed(3)}`}</Text>
+                    </div>
+                {/* <CakePrice cakePriceUsd={cakePriceUsd} /> */}
               </Box>
             )}
             <Box mt="4px">
@@ -180,7 +184,7 @@ const UikitMenu= ({
       </FixedContainer>
       {subLinks && (
         <Flex justifyContent="space-around">
-          <SubMenuItems items={subLinksWithoutMobile} mt={`${totalTopMenuHeight + 1}px`} activeItem={activeSubItem}  />
+          <SubMenuItems items={subLinksWithoutMobile} mt={`${totalTopMenuHeight + 1}px`} activeItem={activeSubItem} className='colorD53B79' />
           {subLinksMobileOnly?.length > 0 && (
             <SubMenuItems
               items={subLinksMobileOnly}

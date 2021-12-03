@@ -132,6 +132,7 @@ export default function SwapModalFooter({
           mt="12px"
           id="confirm-swap-or-send"
           width="100%"
+          className='cocoButton7166B0'
         >
           {severity > 2 ? t('Swap Anyway') : t('Confirm Swap')}
         </Button>

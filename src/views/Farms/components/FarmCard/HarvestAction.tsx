@@ -58,6 +58,7 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
           }
           dispatch(fetchFarmUserDataAsync({ account, pids: [pid] }))
         }}
+        className='cocoButton7166B0'
       >
         {pendingTx ? t('Harvesting') : t('Harvest')}
       </Button>

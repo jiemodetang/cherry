@@ -79,6 +79,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, userD
             dispatch(fetchFarmUserDataAsync({ account, pids: [pid] }))
           }}
           ml="4px"
+          className='cocoButton7166B0'
         >
           {pendingTx ? t('Harvesting') : t('Harvest')}
         </Button>

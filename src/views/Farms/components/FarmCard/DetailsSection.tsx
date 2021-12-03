@@ -18,6 +18,7 @@ const Wrapper = styled.div`
 
 const StyledLinkExternal = styled(LinkExternal)`
   font-weight: 400;
+  color:#7166B0
 `
 
 const DetailsSection: React.FC<ExpandableSectionProps> = ({

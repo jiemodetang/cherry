@@ -196,6 +196,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
             onClick={onPresentDeposit}
             variant="secondary"
             disabled={['history', 'archived'].some((item) => location.pathname.includes(item))}
+            className='cocoButton7166B0NoBorder'
           >
             {t('Stake LP')}
           </Button>

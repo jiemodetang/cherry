@@ -1,5 +1,5 @@
 import React from "react";
-import {Link,Flex, Box,Colors, Button,ThemeSwitcher,CakePrice, Image, ArrowForwardIcon} from '@pancakeswap/uikit'
+import {Link,Flex, Box,Colors, Button,ThemeSwitcher,CakePrice, Image, ArrowForwardIcon,Text} from '@pancakeswap/uikit'
 // import { baseColors, darkColors, lightColors } from "../../theme/colors";
 // import { Flex, Box } from "../Box";
 // import { Link } from "../Link";
@@ -97,7 +97,11 @@ const MenuItem: React.FC<FooterProps> = ({
           </Flex>
           <Flex order={[1, null, 2]} mb={["24px", null, "0"]} justifyContent="space-between" alignItems="center">
             <Box mr="20px">
-              <CakePrice cakePriceUsd={cakePriceUsd} color={darkColors.textSubtle as keyof Colors} />
+            <div style={{display:'-webkit-box',marginRight:'18px'}}>
+                     <Image src='/images/mImg/uuu.png' width={30} height={30} />
+                      <Text bold color="#fff">{`$${cakePriceUsd.toFixed(3)}`}</Text>
+                    </div>
+              {/* <CakePrice cakePriceUsd={cakePriceUsd} color={darkColors.textSubtle as keyof Colors} /> */}
             </Box>
             <Button
               as="a"

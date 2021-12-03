@@ -445,6 +445,7 @@ export default function Swap({ history }: RouteComponentProps) {
                   disabled={
                     !isValid || approval !== ApprovalState.APPROVED || (priceImpactSeverity > 3 && !isExpertMode)
                   }
+                  className='cocoButton7166B0'
                 >
                   {priceImpactSeverity > 3 && !isExpertMode
                     ? t('Price Impact High')
@@ -472,6 +473,7 @@ export default function Swap({ history }: RouteComponentProps) {
                 id="swap-button"
                 width="100%"
                 disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError}
+                className='cocoButton7166B0'
               >
                 {swapInputError ||
                   (priceImpactSeverity > 3 && !isExpertMode
