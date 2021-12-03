@@ -76,6 +76,16 @@ const GlobalStyle = createGlobalStyle`
       fill:#7166B0 !important;
     }
   }
+  .iconImg{
+    >div{
+      >div{
+        border-color:#7166B0;
+        svg{
+          fill:#7166B0
+        }
+      }
+    }
+  }
 `
 
 export default GlobalStyle

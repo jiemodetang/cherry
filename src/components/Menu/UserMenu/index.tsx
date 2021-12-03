@@ -36,7 +36,8 @@ const UserMenu = () => {
   }
 
   return (
-    <UIKitUserMenu account={account} avatarSrc={avatarSrc}>
+    <div className='iconImg'>
+       <UIKitUserMenu account={account} avatarSrc={avatarSrc} >
       <WalletUserMenuItem hasLowBnbBalance={hasLowBnbBalance} onPresentWalletModal={onPresentWalletModal} />
       <UserMenuItem as="button" onClick={onPresentTransactionModal}>
         {t('Transactions')}
@@ -54,6 +55,7 @@ const UserMenu = () => {
         </Flex>
       </UserMenuItem>
     </UIKitUserMenu>
+    </div>
   )
 }
 

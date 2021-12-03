@@ -109,6 +109,7 @@ const MenuItem: React.FC<FooterProps> = ({
               target="_blank"
               scale="sm"
               endIcon={<ArrowForwardIcon color={lightColors.backgroundAlt} />}
+              className='cocoButton7166B0'
             >
               {buyCakeLabel}
             </Button>
