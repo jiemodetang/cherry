@@ -1,5 +1,5 @@
 import React from 'react'
-import { NoProfileAvatarIcon, Flex, Heading, Skeleton, Text, Box } from '@pancakeswap/uikit'
+import { NoProfileAvatarIcon, Flex, Heading, Skeleton, Text, Box,Image } from '@pancakeswap/uikit'
 import { useWeb3React } from '@web3-react/core'
 import styled from 'styled-components'
 import { useProfile } from 'state/profile/hooks'
@@ -7,6 +7,10 @@ import ProfileAvatarWithTeam from 'components/ProfileAvatarWithTeam'
 import { useTranslation } from 'contexts/Localization'
 import truncateHash from 'utils/truncateHash'
 
+const Wrapper = styled(Flex)`
+  height: 100%;
+  width: 100%;
+`
 const Desktop = styled(Flex)`
   align-items: center;
   display: none;
@@ -30,7 +34,7 @@ const Sticker = styled(Flex)`
   box-shadow: ${({ theme }) => theme.card.boxShadow};
 `
 
-const StyledNoProfileAvatarIcon = styled(NoProfileAvatarIcon)`
+const StyledNoProfileAvatarIcon = styled(Flex)`
   height: 100%;
   width: 100%;
 `
@@ -68,9 +72,13 @@ const UserDetail = () => {
   return (
     <>
       <Desktop>
-        <Box mr="24px">
-          <Sticker>{profile ? <ProfileAvatarWithTeam profile={profile} /> : <StyledNoProfileAvatarIcon />}</Sticker>
-        </Box>
+        {/* <Box mr="24px"> */}
+          <Wrapper>
+             <Image src="/images/mImg/i.png" alt="Get some help" width={40} height={40} />  
+          </Wrapper>
+         
+          {/* <Sticker>{profile ? <ProfileAvatarWithTeam profile={profile} /> : <StyledNoProfileAvatarIcon />}</Sticker> */}
+        {/* </Box> */}
         <Flex flexDirection="column">
           {getDesktopHeading()}
           {isLoading || !account ? (

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Spinner } from '@pancakeswap/uikit'
+import { Image} from '@pancakeswap/uikit'
 import Page from '../Layout/Page'
 
 const Wrapper = styled(Page)`
@@ -12,7 +12,8 @@ const Wrapper = styled(Page)`
 const PageLoader: React.FC = () => {
   return (
     <Wrapper>
-      <Spinner />
+        <Image src="/images/mImg/i.png" alt="Get some help" width={160} height={160} />
+      {/* <Spinner /> */}
     </Wrapper>
   )
 }
