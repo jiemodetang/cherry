@@ -39,6 +39,7 @@ const Menu = (props) => {
       footerLinks={footerLinks(t)}
       activeItem={activeMenuItem?.href}
       activeSubItem={activeSubMenuItem?.href}
+      // footer 购买 cake 按钮
       buyCakeLabel={t('Buy CAKE')}
       {...props}
     />

@@ -95,15 +95,17 @@ const MenuItem: React.FC<FooterProps> = ({
               dropdownPosition="top-right"
             /> */}
           </Flex>
-          <Flex order={[1, null, 2]} mb={["24px", null, "0"]} justifyContent="space-between" alignItems="center">
-            <Box mr="20px">
-            <div style={{display:'-webkit-box',marginRight:'18px'}}>
+
+          {/* footer 购买 cake 按钮 zpq */}
+          {/* <Flex order={[1, null, 2]} mb={["24px", null, "0"]} justifyContent="space-between" alignItems="center"> */}
+            {/* <Box mr="20px"> */}
+            {/* <div style={{display:'-webkit-box',marginRight:'18px'}}>
                      <Image src='/images/mImg/uuu.png' width={30} height={30} />
                       <Text bold color="#fff">{`$${cakePriceUsd.toFixed(3)}`}</Text>
-                    </div>
+                    </div> */}
               {/* <CakePrice cakePriceUsd={cakePriceUsd} color={darkColors.textSubtle as keyof Colors} /> */}
-            </Box>
-            <Button
+            {/* </Box> */}
+            {/* <Button
               as="a"
               href="https://pancakeswap.finance/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
               target="_blank"
@@ -112,8 +114,8 @@ const MenuItem: React.FC<FooterProps> = ({
               className='cocoButton7166B0'
             >
               {buyCakeLabel}
-            </Button>
-          </Flex>
+            </Button> */}
+          {/* </Flex> */}
         </StyledToolsContainer>
       </Flex>
     </StyledFooter>
