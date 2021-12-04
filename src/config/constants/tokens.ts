@@ -21,6 +21,16 @@ export const mainnetTokens = {
     'Wrapped BNB',
     'https://www.binance.com/',
   ),
+  // 新加 zpq
+  'BTC-TEST': new Token(
+    MAINNET,
+    '0x889d77f34b43E4f33a5EbD68a029FC2af780a863',
+    18,
+    'BTC-TEST',
+    'BTC Coin',
+    'https://www.binance.com/',
+  ),
+
   // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
   bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
   cake: new Token(
