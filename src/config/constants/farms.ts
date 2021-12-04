@@ -26,6 +26,17 @@ const farms: SerializedFarmConfig[] = [
     },
     token: serializedTokens.wbnb,
     quoteToken: serializedTokens.usdt
+  },
+  // 新加 zpq
+  {
+    pid: 2,
+    lpSymbol: 'BTC-TEST-WBNB LP',
+    lpAddresses: {
+      97: '0x3ed8936cAFDF85cfDBa29Fbe5940A5b0524824F4',
+      56: '0x3e74444DBa5D10Da20FDAE9e6459D1d092Cbce93',
+    },
+    token: serializedTokens.wbnb,
+    quoteToken: serializedTokens['BTC-TEST']
   }
 ]
 
