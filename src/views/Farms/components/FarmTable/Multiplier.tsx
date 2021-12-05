@@ -35,7 +35,7 @@ const Multiplier: React.FunctionComponent<MultiplierProps> = ({ multiplier }) =>
     <>
       <Text>
         {t(
-          'The Multiplier represents the proportion of CAKE rewards each farm receives, as a proportion of the CAKE produced each block.',
+          'The Multiplier represents the proportion of CGC rewards each farm receives, as a proportion of the CGC produced each block.',
         )}
       </Text>
       <Text my="24px">
