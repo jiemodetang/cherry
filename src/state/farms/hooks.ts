@@ -148,10 +148,10 @@ export const usePriceCakeBusd = (): BigNumber => {
   const cakeBnbFarm = useFarmFromPid(1)
 
   const cakePriceBusdAsString = cakeBnbFarm.tokenPriceBusd
-
+  
   const cakePriceBusd = useMemo(() => {
-    return new BigNumber(cakePriceBusdAsString)
+    return cakePriceBusdAsString?new BigNumber(cakePriceBusdAsString):new BigNumber(0.0) 
   }, [cakePriceBusdAsString])
 
-  return cakePriceBusd
+  return cakePriceBusd 
 }

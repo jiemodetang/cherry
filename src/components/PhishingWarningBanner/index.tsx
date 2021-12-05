@@ -75,7 +75,7 @@ const PhishingWarningBanner: React.FC = () => {
       ) : (
         <>
           <InnerContainer>
-            <img src="/images/decorations/phishing-warning-bunny.png" alt="phishing-warning" width="92px" />
+            <img src="/images/mImg/uuu.png" alt="phishing-warning" width="50px" />
             <SpeechBubble>{warningTextComponent}</SpeechBubble>
           </InnerContainer>
           <IconButton onClick={hideBanner} variant="text">
