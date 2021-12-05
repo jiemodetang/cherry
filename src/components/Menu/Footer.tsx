@@ -65,7 +65,8 @@ const Footer = () => {
         justifyContent={['center', 'center', 'center', 'flex-end']}
       >
         <BubbleWrapper>
-          <Button
+          {/* 兑换页面 需要帮助  跳转按钮隐藏  zpq */}
+          {/* <Button
             id="clickExchangeHelp"
             as="a"
             external
@@ -76,7 +77,7 @@ const Footer = () => {
           </Button>
           <Svg viewBox="0 0 16 16">
             <path d="M0 16V0C0 0 3 1 6 1C9 1 16 -2 16 3.5C16 10.5 7.5 16 0 16Z" />
-          </Svg>
+          </Svg> */}
         </BubbleWrapper>
         <Image src="/images/mImg/oos.png" alt="Get some help" width={160} height={108} />
       </Flex>
