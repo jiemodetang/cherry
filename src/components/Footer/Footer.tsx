@@ -57,8 +57,9 @@ const MenuItem: React.FC<FooterProps> = ({
               {item.items?.map(({ label, href, isHighlighted = false }) => (
                 <StyledListItem key={label}>
                   {href ? (
+                    // eslint-disable-next-line jsx-a11y/anchor-is-valid
                     <Link
-                      href={href}
+                      // href={}
                       target="_blank"
                       rel="noreferrer noopener"
                       color={isHighlighted ? baseColors.warning : darkColors.text}
