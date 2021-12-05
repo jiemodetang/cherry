@@ -10,10 +10,15 @@ import { LanguageProvider } from 'contexts/Localization'
 import { RefreshContextProvider } from 'contexts/RefreshContext'
 import { ToastsProvider } from 'contexts/ToastsContext'
 import store from 'state'
+import  {baseColors,additionalColors,lightColors,darkColors} from './components/unikitMenu/theme'
+
 
 const ThemeProviderWrapper = (props) => {
   const [isDark] = useThemeManager()
-  return <ThemeProvider theme={isDark ? dark : light} {...props} />
+    const t = isDark ? dark : light
+    const b = {...baseColors,...additionalColors,...lightColors}
+    t.colors = {...b}
+  return <ThemeProvider theme={t} {...props} />
 }
 
 const Providers: React.FC = ({ children }) => {

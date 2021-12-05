@@ -1,13 +1,14 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
-import { Link } from 'react-router-dom'
-import { Flex, Button,Image } from '@pancakeswap/uikit'
-import { useWeb3React } from '@web3-react/core'
-import { useTranslation } from 'contexts/Localization'
+import styled, {keyframes} from 'styled-components'
+import {Link} from 'react-router-dom'
+import {Flex, Button, Image} from '@pancakeswap/uikit'
+import {useWeb3React} from '@web3-react/core'
+import {useTranslation} from 'contexts/Localization'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import useTheme from 'hooks/useTheme'
-import { SlideSvgDark, SlideSvgLight } from './SlideSvg'
-import CompositeImage, {  CompositeImageProps } from './CompositeImage'
+import {SlideSvgDark, SlideSvgLight} from './SlideSvg'
+import CompositeImage, {CompositeImageProps} from './CompositeImage'
 import lf from '../img/lf.png'
 import lr from '../img/lr.png'
 
@@ -85,16 +86,16 @@ const ImageWrapper = styled.div`
 const starsImage: CompositeImageProps = {
   path: '/images/home/lunar-bunny/',
   attributes: [
-    { src: 'star-l', alt: '3D Star' },
-    { src: 'star-r', alt: '3D Star' },
-    { src: 'star-top-r', alt: '3D Star' },
+    {src: 'star-l', alt: '3D Star'},
+    {src: 'star-r', alt: '3D Star'},
+    {src: 'star-top-r', alt: '3D Star'},
   ],
 }
 
 const Hero = () => {
-  const { t } = useTranslation()
-  const { account } = useWeb3React()
-  const { theme } = useTheme()
+  const {t} = useTranslation()
+  const {account} = useWeb3React()
+  const {theme} = useTheme()
 
   return (
     <>
@@ -110,9 +111,33 @@ const Hero = () => {
         id="homepage-hero"
       >
         <Flex flex="1" flexDirection="column">
-        <ImageWrapper>
-          <Image src={lf} alt="all the bunnies" width={606} height={224} />
-         </ImageWrapper>
+          {/* <ImageWrapper>
+            <Image src={lf} alt="all the bunnies" width={606} height={224} />
+          </ImageWrapper> */}
+          <div>
+            <span
+              style={{
+                display: 'flex',
+                alignContent: 'center',
+                fontWeight: 800,
+                fontSize: '50px',
+                justifyContent: 'center',
+              }}
+            >
+              
+              <span style={{lineHeight: '95px'}}>{t('Hi, welcome')}</span>
+              <img src="/images/mImg/op.png" style={{height: '50px'}} />
+            </span>
+            <span style={{display: 'flex', alignContent: 'center', fontWeight: 800, fontSize: '50px'}}>
+              <span>
+                <img src="/images/mImg/oi.png" width={300} />
+              </span>
+              <span style={{lineHeight: '95px'}}>{t('World~')}</span>
+            </span>
+            <span style={{display: 'flex', alignContent: 'center', fontWeight: 400, margin: '5px 0 '}}>
+              {t('Trade on the most popular de neutralisation platform to earn and win cryptocurrency')}
+            </span>
+          </div>
           {/* <Heading scale="xxl" color="secondary" mb="24px">
             {t('The moon is made of pancakes.')}
           </Heading>
@@ -120,9 +145,11 @@ const Hero = () => {
             {t('Trade, earn, and win crypto on the most popular decentralized platform in the galaxy.')}
           </Heading> */}
           <Flex>
-            {!account && <ConnectWalletButton mr="8px"  className='cocoButton7166B0' />}
+            {!account && <ConnectWalletButton mr="8px" className="cocoButton7166B0" />}
             <Link to="/swap">
-              <Button  className=" cocoButton7166B0NoBorder" variant={!account ? 'secondary' : 'primary'}>{t('Trade Now')}</Button>
+              <Button className=" cocoButton7166B0NoBorder" variant={!account ? 'secondary' : 'primary'}>
+                {t('Trade Now')}
+              </Button>
             </Link>
           </Flex>
         </Flex>
@@ -134,11 +161,10 @@ const Hero = () => {
           position="relative"
         >
           <BunnyWrapper>
-          <Image src={lr} alt="all the bunnies" width={688} height={560} />
+            <Image src={lr} alt="all the bunnies" width={688} height={560} />
           </BunnyWrapper>
-          
+
           <StarsWrapper>
-          
             <CompositeImage {...starsImage} />
           </StarsWrapper>
         </Flex>

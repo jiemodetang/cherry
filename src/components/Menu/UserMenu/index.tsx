@@ -46,7 +46,7 @@ const UserMenu = () => {
       {/* <UserMenuItem as="button" onClick={() => history.push(`${nftsBaseUrl}/profile/${account.toLowerCase()}`)}>
         {t('Your NFTs')}
       </UserMenuItem> */}
-      {/* <ProfileUserMenuItem isLoading={isLoading} hasProfile={hasProfile} /> */}
+      <ProfileUserMenuItem isLoading={isLoading} hasProfile={hasProfile} />
       <UserMenuDivider />
       <UserMenuItem as="button" onClick={logout}>
         <Flex alignItems="center" justifyContent="space-between" width="100%">

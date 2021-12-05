@@ -1,8 +1,8 @@
 // import { darkColors, lightColors } from "../../theme/colors";
 
 export const baseColors = {
-  failure: "#ED4B9E",
-  primary: "#1FC7D4",
+  failure: "#D53B79",
+  primary: "#7166B0",
   primaryBright: "#53DEE9",
   primaryDark: "#0098A1",
   secondary: "#7645D9",
@@ -29,12 +29,12 @@ export const lightColors = {
   dropdown: "#F6F6F6",
   dropdownDeep: "#EEEEEE",
   invertedContrast: "#FFFFFF",
-  input: "#eeeaf4",
+  input: "#EBCAD7",
   inputSecondary: "#d7caec",
   tertiary: "#EFF4F5",
   text: "#280D5F",
   textDisabled: "#BDC2C4",
-  textSubtle: "#7A6EAA",
+  textSubtle: "#D53B79",
   disabled: "#E9EAEB",
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #E5FDFF 0%, #F3EFFF 100%)",
