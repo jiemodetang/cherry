@@ -134,7 +134,7 @@ const Hero = () => {
               </span>
               <span style={{lineHeight: '95px'}}>{t('World~')}</span>
             </span>
-            <span style={{display: 'flex', alignContent: 'center', fontWeight: 400, margin: '5px 0 '}}>
+            <span style={{display: 'flex', alignContent: 'center', fontWeight: 400, margin: '5px 0 25px'}}>
               {t('Trade on the most popular de neutralisation platform to earn and win cryptocurrency')}
             </span>
           </div>

@@ -51,8 +51,8 @@
       "logoURI": "https://pancakeswap.finance/images/tokens/0x55d398326f99059ff775485246999027b3197955.png"
     },
     {
-      "name": "PancakeSwap Token",
-      "symbol": "CAKE",
+      "name": "CocoSwap Token",
+      "symbol": "CGC",
       "address": "0x39b719Fea96275b7504BeeDAA7BCa813e2E89992",
       "chainId": 56,
       "decimals": 18,
