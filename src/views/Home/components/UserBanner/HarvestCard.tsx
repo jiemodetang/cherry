@@ -80,7 +80,7 @@ const HarvestCard = () => {
           {numTotalToCollect <= 0 ? (
             <Link to="farms">
               <Button width={['100%', null, null, 'auto']} variant="secondary" className='cocoButton7166B0NoBorder'>
-                <Text color="primary" bold className='color7166B0'> 
+                <Text color="primary" bold> 
                   {t('Start earning')}
                 </Text>
                 <ArrowForwardIcon ml="4px" color="" />

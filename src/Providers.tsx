@@ -17,7 +17,12 @@ const ThemeProviderWrapper = (props) => {
   const [isDark] = useThemeManager()
     const t = isDark ? dark : light
     const b = {...baseColors,...additionalColors,...lightColors}
-    t.colors = {...b}
+    const c = {...baseColors,...additionalColors,...darkColors}
+    if(isDark){
+      t.colors = {...c}
+    }else{
+      t.colors = {...b}
+    }
   return <ThemeProvider theme={t} {...props} />
 }
 

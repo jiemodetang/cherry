@@ -158,14 +158,14 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
       <InfoContainer>
         {isActive && (
           <StakeContainer>
-            <LinkExternal href={`/add/${liquidityUrlPathParts}`}  className='color7166B0'>
+            <LinkExternal href={`/add/${liquidityUrlPathParts}`} >
               {t('Get %symbol%', { symbol: lpLabel })}
             </LinkExternal>
           </StakeContainer>
         )}
-        <LinkExternal href={bsc} className='color7166B0'>{t('View Contract')}</LinkExternal>
+        <LinkExternal href={bsc}>{t('View Contract')}</LinkExternal>
         {/* 农场列表 行展开 查看货币对信息 链接隐藏  zpq */}
-        {/* <LinkExternal href={info}  className='color7166B0'>{t('See Pair Info')}</LinkExternal> */}
+        {/* <LinkExternal href={info} >{t('See Pair Info')}</LinkExternal> */}
         <TagsContainer>
           {farm.isCommunity ? <CommunityTag /> : <CoreTag />}
           {dual ? <DualTag /> : null}

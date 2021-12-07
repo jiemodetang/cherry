@@ -2,7 +2,7 @@
 import React from 'react'
 import styled, {keyframes} from 'styled-components'
 import {Link} from 'react-router-dom'
-import {Flex, Button, Image} from '@pancakeswap/uikit'
+import {Flex, Button, Image,useMatchBreakpoints} from '@pancakeswap/uikit'
 import {useWeb3React} from '@web3-react/core'
 import {useTranslation} from 'contexts/Localization'
 import ConnectWalletButton from 'components/ConnectWalletButton'
@@ -96,7 +96,7 @@ const Hero = () => {
   const {t} = useTranslation()
   const {account} = useWeb3React()
   const {theme} = useTheme()
-
+  const { isMobile } = useMatchBreakpoints();
   return (
     <>
       <BgWrapper>
@@ -132,9 +132,12 @@ const Hero = () => {
               <span>
                 <img src="/images/mImg/oi.png" width={300} />
               </span>
-              <span style={{lineHeight: '95px'}}>{t('World~')}</span>
+               {!isMobile&&  <span style={{lineHeight: '95px'}}>{t('World~')}</span>}
             </span>
-            <span style={{display: 'flex', alignContent: 'center', fontWeight: 400, margin: '5px 0 '}}>
+            {
+              isMobile &&  <span style={{lineHeight: '95px', fontWeight: 800, fontSize: '50px'}}>{t('World~')}</span>
+            }
+            <span style={{display: 'flex', alignContent: 'center', fontWeight: 400, margin: '5px 0 ',lineHeight:'20px'}}>
               {t('Trade on the most popular de neutralisation platform to earn and win cryptocurrency')}
             </span>
           </div>

@@ -84,7 +84,7 @@ const FarmTable: React.FC<ITableProps> = (props) => {
           </StyledTable>
         </TableWrapper>
         <ScrollButtonContainer>
-          <Button variant="text" onClick={scrollToTop} className='color7166B0'> 
+          <Button variant="text" onClick={scrollToTop}> 
             {t('To Top')}
             <ChevronUpIcon color="#7166B0" />
           </Button>

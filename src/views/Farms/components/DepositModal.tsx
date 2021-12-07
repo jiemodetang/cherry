@@ -162,7 +162,7 @@ const DepositModal: React.FC<DepositModalProps> = ({
           {pendingTx ? t('Confirming') : t('Confirm')}
         </Button>
       </ModalActions>
-      <LinkExternal href={addLiquidityUrl} style={{ alignSelf: 'center' }} className="color7166B0">
+      <LinkExternal href={addLiquidityUrl} style={{ alignSelf: 'center' }}>
         {t('Get %symbol%', { symbol: tokenName })}
       </LinkExternal>
     </Modal>

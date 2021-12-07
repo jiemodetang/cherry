@@ -82,7 +82,6 @@ const DropDownList = styled.ul`
   margin: 0;
   box-sizing: border-box;
   z-index: ${({ theme }) => theme.zIndices.dropdown};
-  background-color:#F8E5ED !important;
 `
 
 const ListItem = styled.li`

@@ -6,6 +6,7 @@ import { darkColors } from "../unikitMenu/theme";
 
 export const StyledFooter = styled(Flex)`
   background: ${darkColors.backgroundAlt};
+  margin-bottom: 0px;
 `;
 
 export const StyledList = styled.ul`

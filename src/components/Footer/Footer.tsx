@@ -39,7 +39,7 @@ const MenuItem: React.FC<FooterProps> = ({
   ...props
 }) => {
   return (
-    <StyledFooter p={["40px 16px", null, "56px 40px 32px 40px"]} {...props} justifyContent="center">
+    <StyledFooter p={["40px 16px", null, "56px 40px 32px 40px"]} {...props} justifyContent="center" className='aaa'>
       <Flex flexDirection="column" width={["100%", null, "1200px;"]}>
         <StyledIconMobileContainer display={["block", null, "none"]}>
           {/* <LogoWithTextIcon isDark width="130px" /> */}
@@ -68,7 +68,8 @@ const MenuItem: React.FC<FooterProps> = ({
                       {label}
                     </Link>
                   ) : (
-                    <StyledText>{label}</StyledText>
+                    <></>
+                    // <StyledText>{label}</StyledText>
                   )}
                 </StyledListItem>
               ))}

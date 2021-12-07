@@ -5,8 +5,8 @@ export const baseColors = {
   primary: "#7166B0",
   primaryBright: "#53DEE9",
   primaryDark: "#0098A1",
-  secondary: "#7645D9",
-  success: "#31D0AA",
+  secondary: "#D53B79",
+  success: "#D53B79",
   warning: "#FFB237",
 };
 
@@ -32,7 +32,7 @@ export const lightColors = {
   input: "#EBCAD7",
   inputSecondary: "#d7caec",
   tertiary: "#EFF4F5",
-  text: "#280D5F",
+  text: "#D53B79",
   textDisabled: "#BDC2C4",
   textSubtle: "#D53B79",
   disabled: "#E9EAEB",

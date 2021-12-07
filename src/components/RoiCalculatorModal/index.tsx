@@ -167,7 +167,7 @@ const RoiCalculatorModal: React.FC<RoiCalculatorModalProps> = ({
               width="68px"
               variant="tertiary"
               onClick={() => setPrincipalFromUSDValue('100')}
-              className='color7166B0'
+             
             >
               $100
             </Button>
@@ -177,7 +177,7 @@ const RoiCalculatorModal: React.FC<RoiCalculatorModalProps> = ({
               width="68px"
               variant="tertiary"
               onClick={() => setPrincipalFromUSDValue('1000')}
-              className='color7166B0'
+             
             >
               $1000
             </Button>
@@ -190,7 +190,7 @@ const RoiCalculatorModal: React.FC<RoiCalculatorModalProps> = ({
               onClick={() =>
                 setPrincipalFromUSDValue(getBalanceNumber(stakingTokenBalance.times(stakingTokenPrice)).toString())
               }
-              className='color7166B0'
+             
             >
               {t('My Balance').toLocaleUpperCase()}
             </Button>

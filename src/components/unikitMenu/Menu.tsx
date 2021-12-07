@@ -22,6 +22,7 @@ height: fit-content;
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
+  margin:0
 `;
 
 const StyledNav = styled.nav`
@@ -86,7 +87,7 @@ const MenuItems= ({ items = [], activeItem, activeSubItem, ...props }) => {
     </Flex>
   );
 };
-const UikitMenu= ({
+const UikitMenu= ({ 
   userMenu,
   banner,
   globalMenu,
@@ -211,7 +212,7 @@ const UikitMenu= ({
           />
         </Inner>
       </BodyWrapper>
-      {/* {isMobile && <BottomNav items={links} activeItem={activeItem} activeSubItem={activeSubItem} />} */}
+      {/* {isMobile &&1} */}
     </Wrapper>
   );
 };
