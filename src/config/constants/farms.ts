@@ -7,6 +7,14 @@ const farms: SerializedFarmConfig[] = [
   /**
    * These 3 farms (PID 0, 251, 252) should always be at the top of the file.
    */
+  
+ /**
+  * zpq
+  * pid : 0; 为 自己发的 代币；
+  * 需要在 tokens.ts 中配置（因为 walletInfo.ts 中读取 余额 时，代币名称直接写死的读取 tokens.ts 中的 cgc 的地址）
+  * 
+  * 
+  */
   {
     pid: 0,
     lpSymbol: 'CAKE',
@@ -35,8 +43,8 @@ const farms: SerializedFarmConfig[] = [
       97: '0x3ed8936cAFDF85cfDBa29Fbe5940A5b0524824F4',
       56: '0x3e74444DBa5D10Da20FDAE9e6459D1d092Cbce93',
     },
-    token: serializedTokens.wbnb,
-    quoteToken: serializedTokens['BTC-TEST']
+    token: serializedTokens['BTC-TEST'],
+    quoteToken: serializedTokens.wbnb,
   }
 ]
 
