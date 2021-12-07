@@ -154,7 +154,8 @@ const UikitMenu= ({
         <StyledNav>
           <Flex>
               <StyledLink to='/'>
-                <Image src="/images/mImg/lo.png" width={160} height={34} />
+               {!isMobile  && <Image src="/images/mImg/lo.png" width={160} height={34} />} 
+               {isMobile  && <Image src="/images/mImg/uuu.png" width={30} height={30} />} 
               </StyledLink>
             {/* <Logo isDark={isDark} href={homeLink?.href ?? "/"} /> */}
             {!isMobile && <MenuItems items={links} activeItem={activeItem} activeSubItem={activeSubItem} ml="24px" />}
