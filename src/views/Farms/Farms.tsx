@@ -365,7 +365,7 @@ const Farms: React.FC = () => {
 
   return (
     <>
-      <PageHeader background="url(/images/mImg/blg.png)">
+      <PageHeader>
         <Heading as="h1" scale="xxl" color="secondary" mb="24px" className='colorD53B79'>
           {t('Farms')}
         </Heading>
