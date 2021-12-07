@@ -19,7 +19,7 @@ const MultiplierWrapper = styled.div`
 
   ${({ theme }) => theme.mediaQueries.lg} {
     text-align: left;
-    margin-right: 0;
+    // margin-right: 0;
   }
 `
 
