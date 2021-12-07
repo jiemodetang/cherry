@@ -21,7 +21,7 @@ export const mainnetTokens = {
     'Wrapped BNB',
     'https://www.binance.com/',
   ),
-  // 新加 zpq
+  // 新加 pid = 2 的对应关系 zpq
   'BTC-TEST': new Token(
     MAINNET,
     '0x889d77f34b43E4f33a5EbD68a029FC2af780a863',
@@ -29,6 +29,16 @@ export const mainnetTokens = {
     'BTC-TEST',
     'BTC Coin',
     'https://www.binance.com/',
+  ),
+
+  // 钱包  读取 cgc 余额
+  cgc: new Token(
+    MAINNET,
+    '0x39b719Fea96275b7504BeeDAA7BCa813e2E89992',
+    18,
+    'CGC',
+    'CocoSwap Token',
+    'https://CocoSwap.finance/',
   ),
 
   // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used

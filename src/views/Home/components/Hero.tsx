@@ -137,7 +137,7 @@ const Hero = () => {
             {
               isMobile &&  <span style={{lineHeight: '95px', fontWeight: 800, fontSize: '50px'}}>{t('World~')}</span>
             }
-            <span style={{display: 'flex', alignContent: 'center', fontWeight: 400, margin: '5px 0 ',lineHeight:'20px'}}>
+            <span style={{display: 'flex', alignContent: 'center', fontWeight: 400, margin: '5px 0  20px',lineHeight:'20px'}}>
               {t('Trade on the most popular de neutralisation platform to earn and win cryptocurrency')}
             </span>
           </div>
