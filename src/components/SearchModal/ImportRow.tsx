@@ -76,9 +76,10 @@ export default function ImportRow({
         {list && list.logoURI && (
           <RowFixed>
             <Text small mr="4px" color="textSubtle">
-              {t('via')} {list.name}
+              {t('via')} CocoSwap Extended
             </Text>
-            <ListLogo logoURI={list.logoURI} size="12px" />
+            {/* 兑换下拉数据搜索不在默认配置文件中的代币，隐藏右侧图标 */}
+            {/* <ListLogo logoURI={list.logoURI} size="12px" /> */}
           </RowFixed>
         )}
       </AutoColumn>
