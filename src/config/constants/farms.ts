@@ -25,20 +25,30 @@ const farms: SerializedFarmConfig[] = [
     token: serializedTokens.syrup,
     quoteToken: serializedTokens.wbnb,
   },
+  // {
+  //   pid: 1,
+  //   lpSymbol: 'BNB-USDT LP',
+  //   lpAddresses: {
+  //     97: '0x3ed8936cAFDF85cfDBa29Fbe5940A5b0524824F4',
+  //     56: '0x35d3cf2c2671d1acd392fb55addc67035e8cf5bd',
+  //   },
+  //   token: serializedTokens.wbnb,
+  //   quoteToken: serializedTokens.usdt
+  // },
   {
     pid: 1,
-    lpSymbol: 'BNB-USDT LP',
+    lpSymbol: 'CGC-BNB LP',
     lpAddresses: {
-      97: '0x3ed8936cAFDF85cfDBa29Fbe5940A5b0524824F4',
-      56: '0x35d3cf2c2671d1acd392fb55addc67035e8cf5bd',
+      97: '0x9C21123D94b93361a29B2C2EFB3d5CD8B17e0A9e',
+      56: '0xc983eb33a9fa15e0bea79502312f03b21ec32f17',
     },
-    token: serializedTokens.wbnb,
-    quoteToken: serializedTokens.usdt
+    token: serializedTokens.cgc,
+    quoteToken: serializedTokens.wbnb,
   },
   // 新加 zpq
   {
     pid: 2,
-    lpSymbol: 'BTC-TEST-WBNB LP',
+    lpSymbol: 'BTC-TEST-BNB LP',
     lpAddresses: {
       97: '0x3ed8936cAFDF85cfDBa29Fbe5940A5b0524824F4',
       56: '0x3e74444DBa5D10Da20FDAE9e6459D1d092Cbce93',

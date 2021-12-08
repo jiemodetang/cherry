@@ -13,9 +13,18 @@ interface TokenPairImageProps extends Omit<UIKitTokenPairImageProps, 'primarySrc
   secondaryToken: Token
 }
 
+// 农场交易对  加入自己代币图标  zpq
 const getImageUrlFromToken = (token: Token) => {
-  const address = token.symbol === 'BNB' ? tokens.wbnb.address : token.address
-  return `/images/tokens/${address}.svg`
+  let farmTokenIcon = '';
+  // 如果是自己的代币
+  if(token.address === '0x39b719Fea96275b7504BeeDAA7BCa813e2E89992') {
+    farmTokenIcon = '/images/tokens/favicon.ico'
+  } else {
+    const address = token.symbol === 'BNB' ? tokens.wbnb.address : token.address
+    farmTokenIcon = `/images/tokens/${address}.svg`
+  }
+  return farmTokenIcon;
+
 }
 
 export const TokenPairImage: React.FC<TokenPairImageProps> = ({ primaryToken, secondaryToken, ...props }) => {
