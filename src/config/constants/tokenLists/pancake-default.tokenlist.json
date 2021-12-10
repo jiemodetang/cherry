@@ -53,10 +53,10 @@
     {
       "name": "CocoSwap Token",
       "symbol": "CGC",
-      "address": "0x39b719Fea96275b7504BeeDAA7BCa813e2E89992",
+      "address": "0xC424D764C792293113FfC31B7d9122B00194ea99",
       "chainId": 56,
       "decimals": 18,
-      "logoURI": "https://pancakeswap.finance/images/tokens/0x39b719Fea96275b7504BeeDAA7BCa813e2E89992.png"
+      "logoURI": "https://pancakeswap.finance/images/tokens/0xC424D764C792293113FfC31B7d9122B00194ea99.png"
     },
     {
       "name": "Venus",

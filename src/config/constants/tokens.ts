@@ -21,7 +21,7 @@ export const mainnetTokens = {
     'Wrapped BNB',
     'https://www.binance.com/',
   ),
-  // 新加 pid = 2 的对应关系 zpq
+  // 新加 pid = 2 的对应关系(测试) zpq
   'BTC-TEST': new Token(
     MAINNET,
     '0x889d77f34b43E4f33a5EbD68a029FC2af780a863',
@@ -34,7 +34,7 @@ export const mainnetTokens = {
   // 钱包  读取 cgc 余额
   cgc: new Token(
     MAINNET,
-    '0x39b719Fea96275b7504BeeDAA7BCa813e2E89992',
+    '0xC424D764C792293113FfC31B7d9122B00194ea99',
     18,
     'CGC',
     'CocoSwap Token',
@@ -45,7 +45,7 @@ export const mainnetTokens = {
   bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
   cake: new Token(
     MAINNET,
-    '0x39b719Fea96275b7504BeeDAA7BCa813e2E89992',
+    '0xC424D764C792293113FfC31B7d9122B00194ea99',
     18,
     'CAKE',
     'PancakeSwap Token',
@@ -233,7 +233,7 @@ export const mainnetTokens = {
   ),
   syrup: new Token(
     MAINNET,
-    '0x46599326Ede519E5C8a48929274B926495aa1E30',
+    '0xD8eC72b28Da2d27741d7A7f7c23b21eEf07C3FC0',
     18,
     'SYRUP',
     'SyrupBar Token',
