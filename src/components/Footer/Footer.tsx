@@ -87,7 +87,7 @@ const MenuItem: React.FC<FooterProps> = ({
           ))}
           <Box display={['none', null, 'block']}>
             <ImageWrapper>
-              <Image src="/images/mImg/iu.png" width={160} height={34} />
+              <Image src="/images/mImg/iu.png" width={160} height={38} />
             </ImageWrapper>
           </Box>
         </Flex>

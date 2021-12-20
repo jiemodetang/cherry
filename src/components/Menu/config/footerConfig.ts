@@ -1,5 +1,5 @@
-import { FooterLinkType } from '@pancakeswap/uikit'
-import { ContextApi } from 'contexts/Localization/types'
+import {FooterLinkType} from '@pancakeswap/uikit'
+import {ContextApi} from 'contexts/Localization/types'
 
 export const footerLinks: (t: ContextApi['t']) => FooterLinkType[] = (t) => [
   // {
@@ -75,6 +75,11 @@ export const footerLinks: (t: ContextApi['t']) => FooterLinkType[] = (t) => [
       //   label: t('Careers'),
       //   href: 'https://docs.pancakeswap.finance/hiring/become-a-chef',
       // },
+      {
+        label: t('Twitter'),
+        // icon: "Twitter",
+        href: 'https://twitter.com/@finance_coco',
+      },
     ],
   },
 ]
