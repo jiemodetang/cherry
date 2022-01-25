@@ -37,8 +37,8 @@ export const mainnetTokens = {
     '0xC424D764C792293113FfC31B7d9122B00194ea99',
     18,
     'CGC',
-    'CocoSwap Token',
-    'https://coco.game/',
+    'CocoGame Coin',
+    'https://cocodao.net/',
   ),
 
   // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
