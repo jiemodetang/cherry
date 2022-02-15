@@ -6,8 +6,12 @@ import $message from "popular-message";
 import { useWeb3React } from '@web3-react/core'
 import { ethers } from 'ethers'
 // import { getBep20Contract } from 'utils/contractHelpers'
+import _ from "lodash";
 import numberUtils from "config/abi/numberUtils";
-import { stakePool,  lockPool} from 'utils/contractHelpers'
+import $web3js from "config/abi/web3";
+import erc20Abi from 'config/abi/stakePool.json'
+import lockAbi from 'config/abi/stLock.json'
+import { tokenPool, lockPool } from 'utils/contractHelpers'
 import contractAddress from 'config/constants/zpool'
 
 const ua = navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i);
@@ -34,7 +38,7 @@ const PoolLeft = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 40%;
+    width: 100%;
     min-height:500px;
     backgrond: #fff;
     border: 1px solid #ccc;
@@ -61,72 +65,468 @@ const listDiv = styled.div`
     padding-bottom: 30px;
 `;
 
-const Zpool: React.FC = () => {
+const Zpool = () => {
+  const [list1, setList1] = useState(0);
   // 是否授权
-	const [isAuthed1, setIsAuthed1] = useState(false);
-  const { account, chainId, connector, library } = useWeb3React()
+  const [isAuthed1, setIsAuthed1] = useState(false);
+  const [isAuthed2, setIsAuthed2] = useState(false);
+  const [selectVal, setSelectVal] = useState("");
+  const [amountInput, setAmountInput] = useState("");
+  const [orderArr, setOrderArr] = useState([]);
+  const [orderData, setOrderData] = useState([]);
+  const [reward, setReward] = useState('0.0000');
+  const { account } = useWeb3React()
   useEffect(() => {
     // account  当前登录账号
     // console.log('9090', account);
-    console.log('22', contractAddress)
+    // console.log('22', contractAddress)
     // const contract = getBep20Contract(contractAddress.stakeContract.address)
-    const contractStake= stakePool(contractAddress.stakeContract.address)
+    const contractStake = tokenPool(contractAddress.tokenContract.address)
     console.log('00', contractStake)
-    const contractLock= lockPool(contractAddress.lockContract.address)
-    console.log('11', contractLock)
+    // 1. 是否授权
+    const isAuth = async () => {
+      const thisWeb3 = $web3js.getWeb3();
+      const nftConst = new thisWeb3.eth.Contract(
+        erc20Abi,
+        contractAddress.tokenContract.address,
+        {
+          from: account,
+        }
+      );
+      nftConst.methods
+        .allowance(account, contractAddress.lockContract.address)
+        .call({ from: account })
+        .then((res) => {
+          if (res > 0) {
+            setIsAuthed1(true)
+          }
+        });
+      // console.log('0', isauth)
+    }
 
-    const amount =  numberUtils.movePointRight(99999999, 18);
-    console.log(amount);
-	});
+    // 2. 解锁是否授权
+    const isAuth2 = async () => {
+      const thisWeb3 = $web3js.getWeb3();
+      const nftConst = new thisWeb3.eth.Contract(
+        lockAbi,
+        contractAddress.lockContract.address,
+        {
+          from: account,
+        }
+      );
+      nftConst.methods
+        .allowance(account, contractAddress.lockContract.address)
+        .call({ from: account })
+        .then((res) => {
+          console.log('sss', res);
+          if (res > 0) {
+            setIsAuthed2(true)
+          }
+        });
+      // console.log('0', isauth)
+    }
 
-  // 矿池一领取奖励
-  const getRewardOne = () => {
-    if (!account) {
-      $message.info('请先链接钱包');
-      return
-		}
-    alert('234')
+    // 3. 锁仓获取用户所有订单
+    const getOrderList = async () => {
+      const thisWeb3 = $web3js.getWeb3();
+      const nftConst = new thisWeb3.eth.Contract(
+        lockAbi,
+        contractAddress.lockContract.address,
+        {
+          from: account,
+        }
+      );
+      nftConst.methods
+        .getUserAllDepositIds(account)
+        .call({ from: account })
+        .then((res) => {
+          console.log('res', res);
+          setOrderArr(res);
+          if (res.length) {
+            // 取订单详情
+            getOrderDetail()
+          }
+        });
+    }
+    if (account) {
+      isAuth();
+      getOrderList();
+      isAuth2()
+      // rewardView();
+    }
+  }, [account, list1]); // eslint-disable-line
+
+  // 订单详情
+  const getOrderDetail = async () => {
+    const thisWeb3 = $web3js.getWeb3();
+    const nftConst2 = new thisWeb3.eth.Contract(
+      lockAbi,
+      contractAddress.lockContract.address,
+      {
+        from: account,
+      }
+    );
+    const arr = ['1', '2']
+    const detailArr = [];
+    arr.forEach((item, index) => {
+      nftConst2.methods.getDepositDetails(item).call({ from: account })
+        .then((res) => {
+          console.log(res);
+          detailArr.push(res);
+          console.log('detailArr', detailArr);
+          setOrderData(detailArr);
+        });
+    })
   }
 
-  // 矿池二领取奖励
-  const getRewardTwo = () => {
+  // 授权
+  const authApprove = async () => {
     if (!account) {
       $message.info('请先链接钱包');
       return
-		}
-    alert('234')
+    }
+    connectMetaMask();
+    const thisWeb3 = $web3js.getWeb3();
+    const nftConst = new thisWeb3.eth.Contract(
+      erc20Abi,
+      contractAddress.tokenContract.address,
+      {
+        from: account,
+      }
+    );
+    let getedHash = '';
+    const amount111 = await numberUtils.movePointRight(99999999, 18);
+    nftConst.methods
+      .approve(contractAddress.lockContract.address, amount111)
+      .send({ from: account })
+      .on("transactionHash", function (hash) {
+        $message.config({
+          top: 50,
+          duration: 0
+        });
+        $message.loading("请耐心等待交易打包，不要退出");
+        getedHash = hash;
+      })
+      .on("receipt", function (receipt) {
+        if (receipt.transactionHash === getedHash) {
+          console.log('approve', 'success');
+          $message.destroy();
+          setTimeout(() => {
+            $message.success('授权成功！')
+          }, 800)
+          setIsAuthed1(true)
+        }
+      })
+      .on("error", function (error, receipt) {
+        console.log('err', error);
+        $message.destroy();
+        setTimeout(() => {
+          $message.error(error.message);
+        }, 800)
+      });
+  };
+
+  // 锁仓数量
+  const handlerInput = (event) => {
+    const inputVal = event.target.value
+    setAmountInput(inputVal);
+  }
+
+  // 下拉选择月份
+  const slectChange = (event) => {
+    const val1 = event.target.value
+    setSelectVal(val1);
+  };
+
+  // 锁仓
+  const handlerLockPool = async () => {
+    // selectVal 月份
+    if (!account) {
+      $message.info('请先链接钱包');
+      return
+    }
+    if (!amountInput) {
+      $message.info('请输入锁仓数量');
+      return
+    }
+    if (!selectVal) {
+      $message.info('请选择月份');
+      return
+    }
+    connectMetaMask();
+    const thisWeb3 = $web3js.getWeb3();
+    const nftConst = new thisWeb3.eth.Contract(
+      lockAbi,
+      contractAddress.lockContract.address,
+      {
+        from: account,
+      }
+    );
+    let getedHash = '';
+    const amount222 = await numberUtils.movePointRight(amountInput, 18);
+    nftConst.methods
+      .lockTokens(amount222, selectVal)
+      .send({ from: account })
+      .on("transactionHash", function (hash) {
+        $message.config({
+          top: 50,
+          duration: 0
+        });
+        $message.loading("请耐心等待交易打包，不要退出");
+        getedHash = hash;
+      })
+      .on("receipt", function (receipt) {
+        if (receipt.transactionHash === getedHash) {
+          console.log('approve', 'success');
+          $message.destroy();
+          setTimeout(() => {
+            $message.success('锁仓成功！')
+          }, 800)
+          setSelectVal('')
+          setAmountInput('')
+        }
+      })
+      .on("error", function (error, receipt) {
+        console.log('err', error);
+        $message.destroy();
+        setTimeout(() => {
+          $message.error(error.message);
+        }, 800)
+        setSelectVal('')
+        setAmountInput('')
+      });
+  };
+
+  // 解锁
+  const doNoLock = (id) => {
+    // withdrawTokens
+    connectMetaMask();
+    const thisWeb3 = $web3js.getWeb3();
+    const nftConst = new thisWeb3.eth.Contract(
+      lockAbi,
+      contractAddress.lockContract.address,
+      {
+        from: account,
+      }
+    );
+    let getedHash = '';
+    nftConst.methods
+      .withdrawTokens(id)
+      .send({ from: account })
+      .on("transactionHash", function (hash) {
+        $message.config({
+          top: 50,
+          duration: 0
+        });
+        $message.loading("请耐心等待交易打包，不要退出");
+        getedHash = hash;
+      })
+      .on("receipt", function (receipt) {
+        if (receipt.transactionHash === getedHash) {
+          console.log('approve', 'success');
+          $message.destroy();
+          setTimeout(() => {
+            $message.success('解锁仓成功！')
+          }, 800);
+          setList1(list1+1)
+          // 为什么报错, 重新调用
+          // getOrderList()
+        }
+      })
+      .on("error", function (error, receipt) {
+        console.log('err', error);
+        $message.destroy();
+        setTimeout(() => {
+          $message.error(error.message);
+        }, 800)
+      });
+    console.log('3', id)
+  }
+
+  // 授权解锁
+  const authunlock = async () => {
+    if (!account) {
+      $message.info('请先链接钱包');
+      return
+    }
+    connectMetaMask();
+    const thisWeb3 = $web3js.getWeb3();
+    const nftConst = new thisWeb3.eth.Contract(
+      lockAbi,
+      contractAddress.lockContract.address,
+      {
+        from: account,
+      }
+    );
+    let getedHash = '';
+    const amount111 = await numberUtils.movePointRight(99999999, 18);
+    nftConst.methods
+      .approve(contractAddress.lockContract.address, amount111)
+      .send({ from: account })
+      .on("transactionHash", function (hash) {
+        $message.config({
+          top: 50,
+          duration: 0
+        });
+        $message.loading("请耐心等待交易打包，不要退出");
+        getedHash = hash;
+      })
+      .on("receipt", function (receipt) {
+        if (receipt.transactionHash === getedHash) {
+          console.log('approve', 'success');
+          $message.destroy();
+          setTimeout(() => {
+            $message.success('解锁授权成功！')
+          }, 800)
+          setIsAuthed2(true)
+        }
+      })
+      .on("error", function (error, receipt) {
+        console.log('err', error);
+        $message.destroy();
+        setTimeout(() => {
+          $message.error(error.message);
+        }, 800)
+      });
+  }
+
+  // 查看奖励
+  const rewardView = () => {
+    const thisWeb3 = $web3js.getWeb3();
+    const nftConst2 = new thisWeb3.eth.Contract(
+      lockAbi,
+      contractAddress.lockContract.address,
+      {
+        from: account,
+      }
+    );
+    nftConst2.methods
+      .userEachRewards(account)
+      .call({ from: account })
+      .then((res) => {
+        setReward(res)
+        console.log('奖励', res)
+
+      });
+  }
+
+  // 领取奖励
+  const getRewardOne = async () => {
+    if (!account) {
+      $message.info('请先链接钱包');
+      return
+    }
+    connectMetaMask();
+    const thisWeb3 = $web3js.getWeb3();
+    const nftConst = new thisWeb3.eth.Contract(
+      lockAbi,
+      contractAddress.lockContract.address,
+      {
+        from: account,
+      }
+    );
+    let getedHash = '';
+    nftConst.methods
+      .receiveReward(account)
+      .send({ from: account })
+      .on("transactionHash", function (hash) {
+        $message.config({
+          top: 50,
+          duration: 0
+        });
+        $message.loading("请耐心等待交易打包，不要退出");
+        getedHash = hash;
+      })
+      .on("receipt", function (receipt) {
+        if (receipt.transactionHash === getedHash) {
+          console.log('approve', 'success');
+          $message.destroy();
+          setTimeout(() => {
+            $message.success('领取奖励成功！')
+          }, 800)
+          rewardView()
+        }
+      })
+      .on("error", function (error, receipt) {
+        console.log('err', error);
+        $message.destroy();
+        setTimeout(() => {
+          $message.error(error.message);
+        }, 800)
+      });
+  }
+  function connectMetaMask() {
+    $web3js
+      .connectMetaMask()
+      .then((res) => {
+        // this.$toast(this.$t("lang.connectsuc"));
+      })
+      .catch((error) => {
+        //    this.$toast(this.$t("lang.connectfail") + error);
+      });
   }
 
   return (
-    <PoolDiv style={ua ? {flexDirection : 'column', alignItems: 'center'}: null}>
-      <PoolLeft style={{width: ua ? '300px' : '40%'}}>
-        <p>矿池一</p>
-        <div style={{margin: '15px 0'}}>
-          <input placeholder="请输入质押数量" type="number" style={{height: '40px', paddingLeft: '6px', borderRadius: '4px', marginRight: '10px', border: 'none', borderColor: '#ccc'}}/>
-          <Button>
+    <PoolDiv style={ua ? { flexDirection: 'column', alignItems: 'center' } : null}>
+      <PoolLeft style={{ width: ua ? '300px' : '80%' }}>
+        <div style={{ margin: '0 0 35px' }}>
+          <span>锁仓数量：</span>
+          <input
+            placeholder="请输入锁仓数量" type="number"
+            value={null}
+            onChange={handlerInput}
+            style={{ height: '40px', paddingLeft: '6px', borderRadius: '4px', marginRight: '10px', border: 'none', borderColor: '#ccc' }} />
+
+          <span style={{ marginLeft: '25px' }}>请选择月份：</span>
+          <select style={{ marginRight: '35px' }} onChange={slectChange}>
+            <option value="请选择">请选择</option>
+            <option value={3}>三月</option>
+            <option value={6}>六月</option>
+            <option value={9}>九月</option>
+            <option value={12}>十二月</option>
+          </select>
+          <Button onClick={!isAuthed1 ? authApprove : handlerLockPool}>
             {!isAuthed1 ? '授权' : '锁定'}
           </Button>
         </div>
-        <div style={{maxHeight: '400px', overflowY: 'auto'}}>
-          <ul>
+        <div style={{ maxHeight: '400px', overflowY: 'auto' }}>
+          <ul style={{ minHeight: '30px' }}>
             {
-              data.map((item, index) => {
-                return  <li style={{margin: '10px 0'}}>
-                <span>{item.name}</span>
-                <span style={{margin: '0 25px'}}>{item.status}</span>
-                <Button style={{marginLeft: '10px', height: '35px'}}>解锁</Button>
-              </li>
-              })
+              orderData.length ?
+                orderData.map((item, index) => {
+                  return <li style={{ margin: '10px 0' }}>
+                    <span>锁仓数量：{item[3]}，</span>
+                    <span style={{ marginLeft: '8px' }}>是否已解锁：{item[5] ? '已解锁' : '未解锁'}</span>
+                    <span style={{ margin: '0 25px' }}>{item.status}</span>
+                    {
+                      isAuthed2 ?
+                        <Button style={{ marginLeft: '10px', height: '35px' }}
+                          disabled={item[5]}
+                          onClick={() => {
+                            doNoLock(index + 1)
+                          }}
+                        >
+                          解锁
+                        </Button>
+                        :
+                        <Button style={{ marginLeft: '10px', height: '35px' }}
+                        onClick={authunlock}
+                      >
+                        授权
+                      </Button>
+                    }
+                  </li>
+                }) : '锁定创建订单'
             }
           </ul>
         </div>
-        <div style={{marginTop: '20px'}}>
-          <p style={{margin: '20px 0'}}>待领取奖励：0.0000</p>
+        <div style={{ marginTop: '40px' }}>
+          <span style={{ margin: '60px 30px 0' }}>待领取奖励 CGC：{reward || '0.0000'}</span>
           <Button onClick={getRewardOne}>领取奖励</Button>
         </div>
       </PoolLeft>
 
-      <PoolRight style={{width: ua ? '300px' : '40%'}}>
+      {/* <PoolRight style={{width: ua ? '300px' : '40%'}}>
         <p style={{margin: '15px 0 35px'}}>已质押（个）: 0.0000</p>
         <div>
           <input placeholder="请输入质押数量" type="number" style={{height: '40px', paddingLeft: '6px', borderRadius: '4px', marginRight: '10px', border: 'none', borderColor: '#ccc'}}/>
@@ -141,7 +541,7 @@ const Zpool: React.FC = () => {
           <p style={{margin: '20px 0'}}>待领取奖励：0.0000</p>
           <Button onClick={getRewardTwo}>领取奖励</Button>
         </div>
-      </PoolRight>
+      </PoolRight> */}
     </PoolDiv>
   )
 }

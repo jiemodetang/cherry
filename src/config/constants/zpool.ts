@@ -1,8 +1,8 @@
 export default {
-  stakeContract: {
-    address: '0x1d32c2945C8FDCBc7156c553B7cEa4325a17f4f9',
+  tokenContract: {
+    address: '0xC4182AEDdcF249d2403bAc0E93Ae5ee73D022232',
   },
   lockContract: {
-    address: '0x1d32c2945C8FDCBc7156c553B7cEa4325a17f4f9',
+    address: '0x95821cE99d79e272122aBe40dA449FeD1B696FBd',
   },
 }

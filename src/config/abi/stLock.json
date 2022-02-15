@@ -101,7 +101,7 @@
 			{
 				"indexed": false,
 				"internalType": "uint256",
-				"name": "InBkrAmount",
+				"name": "InTokenAmount",
 				"type": "uint256"
 			},
 			{
@@ -117,7 +117,7 @@
 				"type": "uint256"
 			}
 		],
-		"name": "UserLockBkr",
+		"name": "UserLockToken",
 		"type": "event"
 	},
 	{
@@ -132,7 +132,7 @@
 			{
 				"indexed": false,
 				"internalType": "uint256",
-				"name": "OutBkrAmount",
+				"name": "OutTokenAmount",
 				"type": "uint256"
 			},
 			{
@@ -142,7 +142,7 @@
 				"type": "uint256"
 			}
 		],
-		"name": "UserUnlockBkr",
+		"name": "UserUnlockToken",
 		"type": "event"
 	},
 	{
@@ -270,19 +270,6 @@
 	},
 	{
 		"inputs": [],
-		"name": "denominator",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "depositId",
 		"outputs": [
 			{
@@ -365,25 +352,11 @@
 				"internalType": "bool",
 				"name": "",
 				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
+			},
 			{
-				"internalType": "address",
-				"name": "_withdrawalAddress",
-				"type": "address"
-			}
-		],
-		"name": "getDepositsByWithdrawalAddress",
-		"outputs": [
-			{
-				"internalType": "uint256[]",
-				"name": "_depositsByWithdrawalAddress",
-				"type": "uint256[]"
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
 			}
 		],
 		"stateMutability": "view",
@@ -484,7 +457,7 @@
 			},
 			{
 				"internalType": "uint256",
-				"name": "_lockTokenBlockNumber",
+				"name": "_lockTokenMounth",
 				"type": "uint256"
 			}
 		],
@@ -566,19 +539,6 @@
 	},
 	{
 		"inputs": [],
-		"name": "numerator",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "owner",
 		"outputs": [
 			{
@@ -588,6 +548,19 @@
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			}
+		],
+		"name": "receiveReward",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -617,24 +590,6 @@
 			}
 		],
 		"name": "setMinimumLockupQuantity",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint16",
-				"name": "_numerator",
-				"type": "uint16"
-			},
-			{
-				"internalType": "uint16",
-				"name": "_denominator",
-				"type": "uint16"
-			}
-		],
-		"name": "setRatio",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
