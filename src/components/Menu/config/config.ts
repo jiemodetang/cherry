@@ -29,10 +29,10 @@ const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
         label: t('Farms'),
         href: '/farms',
       },
-      // {
-      //   label: t('Pools'),
-      //   href: '/pools',
-      // },
+      {
+        label: t('pool'),
+        href: '/pool',
+      },
     ],
   },
   // {

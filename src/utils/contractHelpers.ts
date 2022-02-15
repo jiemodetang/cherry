@@ -64,6 +64,8 @@ import nftMarketAbi from 'config/abi/nftMarket.json'
 import nftSaleAbi from 'config/abi/nftSale.json'
 import pancakeSquadAbi from 'config/abi/pancakeSquad.json'
 import erc721CollctionAbi from 'config/abi/erc721collection.json'
+import stakeAbi from 'config/abi/stakePool.json'
+import lockAbi from 'config/abi/stLock.json'
 import { ChainLinkOracleContract, FarmAuctionContract, PancakeProfileContract, PredictionsContract } from './types'
 
 const getContract = (abi: any, address: string, signer?: ethers.Signer | ethers.providers.Provider) => {
@@ -168,4 +170,14 @@ export const getPancakeSquadContract = (signer?: ethers.Signer | ethers.provider
 }
 export const getErc721CollectionContract = (signer?: ethers.Signer | ethers.providers.Provider, address?: string) => {
   return getContract(erc721CollctionAbi, address, signer)
+}
+
+// new pool stakepool
+export const stakePool = (address: string, signer?: ethers.Signer | ethers.providers.Provider) => {
+  return getContract(stakeAbi, address, signer)
+}
+
+// new pool lockpool 第一个
+export const lockPool = (address: string, signer?: ethers.Signer | ethers.providers.Provider) => {
+  return getContract(lockAbi, address, signer)
 }
