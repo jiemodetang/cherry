@@ -328,7 +328,7 @@ const Zpool = () => {
           setTimeout(() => {
             $message.success('解锁仓成功！')
           }, 800);
-          setList1(list1+1)
+          setList1(list1 + 1)
           // 为什么报错, 重新调用
           // getOrderList()
         }
@@ -468,33 +468,39 @@ const Zpool = () => {
 
   return (
     <PoolDiv style={ua ? { flexDirection: 'column', alignItems: 'center' } : null}>
-      <PoolLeft style={{ width: ua ? '300px' : '80%' }}>
-        <div style={{ margin: '0 0 35px' }}>
-          <span>锁仓数量：</span>
-          <input
-            placeholder="请输入锁仓数量" type="number"
-            value={null}
-            onChange={handlerInput}
-            style={{ height: '40px', paddingLeft: '6px', borderRadius: '4px', marginRight: '10px', border: 'none', borderColor: '#ccc' }} />
+      <PoolLeft style={{ width: ua ? '330px' : '80%' }}>
+        <div style={{flexDirection : ua ? 'column': 'unset', margin: '0 0 45px', width: '80%', textAlign: 'left', display: 'flex', alignItems: ua ? '' : 'center'}}>
+          <div style={{ width: '60%' }}>
+            <span>锁仓数量：</span>
+            <input
+              placeholder="请输入锁仓数量" type="number"
+              value={null}
+              onChange={handlerInput}
+              style={{ height: '40px', paddingLeft: '6px', borderRadius: '4px', marginRight: '10px', border: 'none', borderColor: '#ccc', margin: ua ? '10px 0 15px 15px' : '0' }} />
 
-          <span style={{ marginLeft: '25px' }}>请选择月份：</span>
-          <select style={{ marginRight: '35px' }} onChange={slectChange}>
-            <option value="请选择">请选择</option>
-            <option value={3}>三月</option>
-            <option value={6}>六月</option>
-            <option value={9}>九月</option>
-            <option value={12}>十二月</option>
-          </select>
-          <Button onClick={!isAuthed1 ? authApprove : handlerLockPool}>
+            <span style={{ marginLeft:  ua ? '0' : '25px'}}>请选择月份：</span>
+            <select style={{ marginRight: '35px', margin:  ua ? '15px' : '0' }} onChange={slectChange}>
+              <option value="请选择">请选择</option>
+              <option value={3}>三月</option>
+              <option value={6}>六月</option>
+              <option value={9}>九月</option>
+              <option value={12}>十二月</option>
+            </select>
+          </div>
+          <Button 
+            style={{ marginTop: ua ? '20px' : '0' }} 
+            onClick={!isAuthed1 ? authApprove : handlerLockPool}>
             {!isAuthed1 ? '授权' : '锁定'}
           </Button>
         </div>
-        <div style={{ maxHeight: '400px', overflowY: 'auto' }}>
-          <ul style={{ minHeight: '30px' }}>
+        <span style={{ width: '80%', textAlign: 'left' }}>订单列表:</span>
+        <div style={{ maxHeight: '450px', minHeight: '80px', overflowY: 'auto' }}>
+          <ul style={{ minHeight: '30px', margin: '10px 0' }}>
             {
               orderData.length ?
                 orderData.map((item, index) => {
                   return <li style={{ margin: '10px 0' }}>
+                    {/* <p style={{ width: '60%' }}> </p> */}
                     <span>锁仓数量：{item[3]}，</span>
                     <span style={{ marginLeft: '8px' }}>是否已解锁：{item[5] ? '已解锁' : '未解锁'}</span>
                     <span style={{ margin: '0 25px' }}>{item.status}</span>
@@ -510,18 +516,20 @@ const Zpool = () => {
                         </Button>
                         :
                         <Button style={{ marginLeft: '10px', height: '35px' }}
-                        onClick={authunlock}
-                      >
-                        授权
-                      </Button>
+                          onClick={authunlock}
+                        >
+                          授权
+                        </Button>
                     }
                   </li>
-                }) : '锁定创建订单'
+                }) : '暂无订单列表!'
             }
           </ul>
         </div>
-        <div style={{ marginTop: '40px' }}>
-          <span style={{ margin: '60px 30px 0' }}>待领取奖励 CGC：{reward || '0.0000'}</span>
+        <div style={{ marginTop: '50px', width: '80%', textAlign: 'left', display: 'flex', alignItems: 'center' }}>
+          <div style={{ width: '60%' }}>
+            <span style={{ margin: '60px 30px 0 0' }}>待领取奖励 CGC：{reward || '0.0000'}</span>
+          </div>
           <Button onClick={getRewardOne}>领取奖励</Button>
         </div>
       </PoolLeft>
