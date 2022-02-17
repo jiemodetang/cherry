@@ -1,6 +1,6 @@
 export default {
   tokenContract: {
-    address: '0xc7ce8319aB6e912Be1D6a0cB5E8330A5C2A83317',
+    address: '0x68Fe9aE4F4745E7ce1878dfBE8f4106BE14F5beD',
   },
   lockContract: {
     address: '0x7e338abE09b8995647B7a849DE6be6D3401875E2',

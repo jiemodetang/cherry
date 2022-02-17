@@ -316,6 +316,7 @@ const Zpool = () => {
     );
     let getedHash = '';
     const amount222 = await numberUtils.movePointRight(amountInput, 18);
+    console.log('amount222, selectVal', amount222, selectVal)
     nftConst.methods
       .lockTokens(amount222, selectVal)
       .send({ from: account })
