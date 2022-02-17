@@ -42,7 +42,11 @@ const PoolLeft = styled.div`
     width: 100%;
     min-height:500px;
     backgrond: #fff;
-    border: 1px solid #ccc;
+    filter: drop-shadow(rgba(25, 19, 38, 0.15) 0px 1px 4px);
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    margin: 16px 0px;
+
 `;
 
 const PoolRight = styled.div`
@@ -473,7 +477,7 @@ const Zpool = () => {
   return (
     <PoolDiv style={ua ? { flexDirection: 'column', alignItems: 'center' } : null}>
       <PoolLeft style={{ width: ua ? '330px' : '80%' }}>
-        <div style={{flexDirection : ua ? 'column': 'unset', margin: '0 0 45px', width: '80%', textAlign: 'left', display: 'flex', alignItems: ua ? '' : 'center'}}>
+        <div style={{flexDirection : ua ? 'column': 'unset', margin: '10px 0 20px', width: '80%', textAlign: 'left', display: 'flex', alignItems: ua ? '' : 'center'}}>
           <div style={{ width: '70%' }}>
             <span>{t('Locked Quantity')}：</span>
             <input
@@ -489,6 +493,8 @@ const Zpool = () => {
               <option value={6}>六月</option>
               <option value={9}>九月</option>
               <option value={12}>十二月</option>
+              <option value={15}>十五月</option>
+              <option value={18}>十八月</option>
             </select>
           </div>
           <Button 
@@ -497,7 +503,9 @@ const Zpool = () => {
             {!isAuthed1 ? t('Auth') : t('locking')}
           </Button>
         </div>
-        <span style={{ width: '80%', textAlign: 'left',marginBottom: '15px' }}>{t('Order List')}:</span>
+        
+        <span style={{height: '2px', width: '100%', background: '#eee'}}></span> {/* eslint-disable-line */}
+        <span style={{ width: '80%', textAlign: 'left',margin: '20px 0 15px' }}>{t('Order List')}:</span>
         <div style={{ maxHeight: '450px', minHeight: '100px', width: '80%' }}>
           <ul style={{ minHeight: '30px', margin: '10px 0', maxHeight: '450px', overflowY: 'auto'}}>
             {
@@ -534,7 +542,8 @@ const Zpool = () => {
             }
           </ul>
         </div>
-        <div style={{ marginTop: '30px', width: '80%', textAlign: 'left', display: 'flex', alignItems: 'center' }}>
+        <span style={{height: '2px', width: '100%', background: '#eee'}}></span> {/* eslint-disable-line */}
+        <div style={{ marginTop: '20px', width: '80%', textAlign: 'left', display: 'flex', alignItems: 'center' }}>
           <div style={{ width: '70%' }}>
             <span style={{ margin: '60px 30px 0 0' }}>{t('Rewards to be claimed')} CGC：{reward || '0.0000'}</span>
           </div>
