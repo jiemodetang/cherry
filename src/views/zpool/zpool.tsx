@@ -566,17 +566,17 @@ const Zpool = () => {
                   return <li style={{ margin: '5px 0', width: ua ?'100%' : '80%',paddingLeft: '40px', display:'flex', flexWrap: ua ? 'wrap': 'nowrap'}}>
                     <p style={{ width: '100%', marginBottom: ua ? '15px' : '0'}}> 
                     <span style={{marginRight:'5px'}}>{index + 1}. </span>
-                    <span>{t('Locked Quantity')}：{item[3]}，</span>
-                    <span style={{ marginLeft: '8px' }}>{t('Is it unlocked')}：{item[5] ? t("unlocked") : t("not unlocked")}</span>
+                    <span>{t('Locked Quantity')}：{numberUtils.movePointLeft(item[2], 18)}，</span>
+                    <span style={{ marginLeft: '8px' }}>{t('Is it unlocked')}：{item[4] ? t("Unlockable") : item[3] ? t("unlocked") : t("not unlocked")}</span>
                     <span style={{ margin: '0 25px' }}>{item.status}</span>
                     </p>
                     
                     {
                       isAuthed2 ?
                         <Button style={{ marginLeft: '10px', height: '35px', width:'95px' }}
-                          disabled={item[5]}
+                          disabled={item[3] || item[4]}
                           onClick={() => {
-                            doNoLock(item[6])
+                            doNoLock(item[5])
                           }}
                         >
                           {t('unlock')}
