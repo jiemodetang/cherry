@@ -301,7 +301,8 @@ const Zpool = () => {
   };
 
   // 解锁
-  const doNoLock = (id) => {
+  const doNoLock = (itemid) => {
+    const id = Number(itemid)
     // withdrawTokens
     connectMetaMask();
     const thisWeb3 = $web3js.getWeb3();
@@ -407,7 +408,8 @@ const Zpool = () => {
       .userEachRewards(account)
       .call({ from: account })
       .then((res) => {
-        setReward(res)
+        const resreward = numberUtils.movePointLeft(res, 18).toString();
+        setReward(resreward)
         console.log('奖励', res)
       });
   }
