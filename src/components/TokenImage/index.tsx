@@ -17,7 +17,7 @@ interface TokenPairImageProps extends Omit<UIKitTokenPairImageProps, 'primarySrc
 const getImageUrlFromToken = (token: Token) => {
   let farmTokenIcon = '';
   // 如果是自己的代币
-  if(token.address === '0xbB799BBA1B68c55C872269bA04bF119f5A94B187') {
+  if(token.address === '0xCb597f83722fC551e0748b25B2a0ac613606bb62') {
     farmTokenIcon = '/images/tokens/favicon.ico'
   } else {
     const address = token.symbol === 'BNB' ? tokens.wbnb.address : token.address
