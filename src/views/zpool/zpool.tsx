@@ -72,6 +72,8 @@ const listDiv = styled.div`
 
 const Zpool = () => {
   const [list1, setList1] = useState(0);
+  const [stakeTokenB, setStakeTokenB] = useState('0.0000')
+  const [veTokenB, setVeTokenB] = useState('0.0000')
   // 是否授权
   const [isAuthed1, setIsAuthed1] = useState(false);
   const [isAuthed2, setIsAuthed2] = useState(false);
@@ -88,6 +90,48 @@ const Zpool = () => {
     // console.log('22', contractAddress)
     // const contract = getBep20Contract(contractAddress.stakeContract.address)
     const contractStake = tokenPool(contractAddress.tokenContract.address)
+
+    // 0   staketoken balanceOf
+    const stakeTokenbal = async () => {
+      const thisWeb3 = $web3js.getWeb3();
+      const nftConst = new thisWeb3.eth.Contract(
+        erc20Abi,
+        contractAddress.tokenContract.address,
+        {
+          from: account,
+        }
+      );
+      nftConst.methods
+      .balanceOf(account)
+      .call({ from: account })
+      .then((res) => {
+        console.log('stakeTokenbal', res);
+        const stakeres = numberUtils.movePointLeft(res, 18).toString();
+        setStakeTokenB(stakeres)
+      });
+     
+    }
+    // 00  vetoken balanceOf
+    const veTokenbal = async () => {
+      const thisWeb3 = $web3js.getWeb3();
+      const nftConst = new thisWeb3.eth.Contract(
+        lockAbi,
+        contractAddress.lockContract.address,
+        {
+          from: account,
+        }
+      );
+      nftConst.methods
+      .balanceOf(account)
+      .call({ from: account })
+      .then((res) => {
+        console.log('veres', res);
+        const veres = numberUtils.movePointLeft(res, 18).toString();
+        setVeTokenB(veres)
+      });
+     
+      
+    }
     // 1. 是否授权
     const isAuth = async () => {
       const thisWeb3 = $web3js.getWeb3();
@@ -155,6 +199,8 @@ const Zpool = () => {
         });
     }
     if (account) {
+      stakeTokenbal()
+      veTokenbal()
       isAuth();
       getOrderList();
       isAuth2()
@@ -477,7 +523,12 @@ const Zpool = () => {
   return (
     <PoolDiv style={ua ? { flexDirection: 'column', alignItems: 'center' } : null}>
       <PoolLeft style={{ width: ua ? '330px' : '80%' }}>
+        <div style={{ width: '80%', marginTop: '15px' }}>
+            <span>stakeToken {t('Balance')}：{stakeTokenB}</span>
+            <span style={{marginLeft:'90px'}}>veToken {t('Balance')}：{veTokenB}</span>
+          </div>
         <div style={{flexDirection : ua ? 'column': 'unset', margin: '10px 0 20px', width: '80%', textAlign: 'left', display: 'flex', alignItems: ua ? '' : 'center'}}>
+         
           <div style={{ width: '70%' }}>
             <span>{t('Locked Quantity')}：</span>
             <input

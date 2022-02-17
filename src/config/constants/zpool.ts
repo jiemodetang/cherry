@@ -8,9 +8,11 @@ export default {
   cgctoken: {
     address: '0xCb597f83722fC551e0748b25B2a0ac613606bb62',
   },
+  // 锁仓查看奖励
   mastchef: {
     address: '0x312a97f00704329BFb179241C54be954608f26C2',
   },
+  // 农场
   farm: {
     address: '0xbaf2ec21373474a39B9fB81068cd7Ac1A1e27223',
   },
