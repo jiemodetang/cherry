@@ -39,6 +39,12 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, userD
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
   const { account } = useWeb3React()
+  console.log('account', account)
+
+  // 授权
+  const newAuth = async () => {
+    console.log('909')
+  }
 
   return (
     <ActionContainer>
@@ -57,6 +63,11 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, userD
             <Balance fontSize="12px" color="textSubtle" decimals={2} value={earningsBusd} unit=" USD" prefix="~" />
           )}
         </div>
+        <Button
+          disabled={account === undefined}
+          onClick={newAuth}>
+         {t('Auth')}
+        </Button>
         <Button
           disabled={earnings.eq(0) || pendingTx || !userDataReady}
           onClick={async () => {

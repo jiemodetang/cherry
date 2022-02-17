@@ -120,6 +120,7 @@
   "Total jackpot this round": "Total jackpot this round",
   "Collect Winnings": "Collect Winnings",
   "Buy Tickets": "Buy Tickets",
+  "Auth": "Auth",
   "Harvest": "Harvest",
   "Select": "Select",
   "Winning Numbers This Round": "Winning Numbers This Round",
@@ -1752,5 +1753,22 @@
   "Unwrap": "Unwrap",
   "Go to IFO": "Go to IFO",
   "Phishing warning: ": "Phishing warning: ",
-  "please make sure you're visiting https://cocodao.net - check the URL carefully.": "please make sure you're visiting https://cocodao.net - check the URL carefully."
+  "please make sure you're visiting https://cocodao.net - check the URL carefully.": "please make sure you're visiting https://cocodao.net - check the URL carefully.",
+  
+  "Locked Quantity": "Locked Quantity",
+  "select month": "select month",
+  "locking":"Locking",
+  "Order List": "Order List",
+  "Is it unlocked": "Is it unlocked",
+  "Rewards to be claimed": "Rewards to be claimed",
+  "unlock": "Unlock",
+  "Receive award": "Receive award",
+  "unlocked": "unlocked",
+  "not unlocked": "No unlocked",
+  "No order list yet!": "No order list yet!",
+  "please choose": "Choose",
+  "Please enter the lock-up amount":"Please enter the lock-up amount",
+  "Please link the wallet first":"Please link the wallet first",
+  "Please select a month": "Please select a month"
+
 }

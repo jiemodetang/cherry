@@ -5,12 +5,13 @@ import 'popular-message/index.css';
 import $message from "popular-message";
 import { useWeb3React } from '@web3-react/core'
 import { ethers } from 'ethers'
-// import { getBep20Contract } from 'utils/contractHelpers'
+import { useTranslation } from 'contexts/Localization'
 import _ from "lodash";
 import numberUtils from "config/abi/numberUtils";
 import $web3js from "config/abi/web3";
 import erc20Abi from 'config/abi/stakePool.json'
 import lockAbi from 'config/abi/stLock.json'
+import masterChefABI from 'config/abi/stmasterchef.json'
 import { tokenPool, lockPool } from 'utils/contractHelpers'
 import contractAddress from 'config/constants/zpool'
 
@@ -76,13 +77,13 @@ const Zpool = () => {
   const [orderData, setOrderData] = useState([]);
   const [reward, setReward] = useState('0.0000');
   const { account } = useWeb3React()
+  const { t } = useTranslation()
   useEffect(() => {
     // account  当前登录账号
     // console.log('9090', account);
     // console.log('22', contractAddress)
     // const contract = getBep20Contract(contractAddress.stakeContract.address)
     const contractStake = tokenPool(contractAddress.tokenContract.address)
-    console.log('00', contractStake)
     // 1. 是否授权
     const isAuth = async () => {
       const thisWeb3 = $web3js.getWeb3();
@@ -142,9 +143,10 @@ const Zpool = () => {
         .then((res) => {
           console.log('res', res);
           setOrderArr(res);
+          // setList1(list1 + 1)
           if (res.length) {
             // 取订单详情
-            getOrderDetail()
+            getOrderDetail(res)
           }
         });
     }
@@ -152,12 +154,13 @@ const Zpool = () => {
       isAuth();
       getOrderList();
       isAuth2()
-      // rewardView();
+      rewardView();
     }
   }, [account, list1]); // eslint-disable-line
 
   // 订单详情
-  const getOrderDetail = async () => {
+  const getOrderDetail = async (ssss) => {
+    console.log('ddd', ssss);
     const thisWeb3 = $web3js.getWeb3();
     const nftConst2 = new thisWeb3.eth.Contract(
       lockAbi,
@@ -166,14 +169,13 @@ const Zpool = () => {
         from: account,
       }
     );
-    const arr = ['1', '2']
+    // const arr = ['1', '2', '3', '4', '5', '6', '7', '9', '10', '11', '12', '14']
     const detailArr = [];
-    arr.forEach((item, index) => {
+    ssss.forEach((item, index) => {
       nftConst2.methods.getDepositDetails(item).call({ from: account })
         .then((res) => {
           console.log(res);
           detailArr.push(res);
-          console.log('detailArr', detailArr);
           setOrderData(detailArr);
         });
     })
@@ -182,7 +184,7 @@ const Zpool = () => {
   // 授权
   const authApprove = async () => {
     if (!account) {
-      $message.info('请先链接钱包');
+      $message.info(t('Please link the wallet first'));
       return
     }
     connectMetaMask();
@@ -242,15 +244,15 @@ const Zpool = () => {
   const handlerLockPool = async () => {
     // selectVal 月份
     if (!account) {
-      $message.info('请先链接钱包');
+      $message.info(t('Please link the wallet first'));
       return
     }
     if (!amountInput) {
-      $message.info('请输入锁仓数量');
+      $message.info(t('Please enter the lock-up amount'));
       return
     }
     if (!selectVal) {
-      $message.info('请选择月份');
+      $message.info(t('Please select a month'));
       return
     }
     connectMetaMask();
@@ -284,6 +286,7 @@ const Zpool = () => {
           }, 800)
           setSelectVal('')
           setAmountInput('')
+          setList1(list1 + 1)
         }
       })
       .on("error", function (error, receipt) {
@@ -346,7 +349,7 @@ const Zpool = () => {
   // 授权解锁
   const authunlock = async () => {
     if (!account) {
-      $message.info('请先链接钱包');
+      $message.info(t('Please link the wallet first'));
       return
     }
     connectMetaMask();
@@ -394,8 +397,8 @@ const Zpool = () => {
   const rewardView = () => {
     const thisWeb3 = $web3js.getWeb3();
     const nftConst2 = new thisWeb3.eth.Contract(
-      lockAbi,
-      contractAddress.lockContract.address,
+      masterChefABI,
+      contractAddress.mastchef.address,
       {
         from: account,
       }
@@ -406,14 +409,13 @@ const Zpool = () => {
       .then((res) => {
         setReward(res)
         console.log('奖励', res)
-
       });
   }
 
   // 领取奖励
   const getRewardOne = async () => {
     if (!account) {
-      $message.info('请先链接钱包');
+      $message.info(t('Please link the wallet first'));
       return
     }
     connectMetaMask();
@@ -470,17 +472,17 @@ const Zpool = () => {
     <PoolDiv style={ua ? { flexDirection: 'column', alignItems: 'center' } : null}>
       <PoolLeft style={{ width: ua ? '330px' : '80%' }}>
         <div style={{flexDirection : ua ? 'column': 'unset', margin: '0 0 45px', width: '80%', textAlign: 'left', display: 'flex', alignItems: ua ? '' : 'center'}}>
-          <div style={{ width: '60%' }}>
-            <span>锁仓数量：</span>
+          <div style={{ width: '70%' }}>
+            <span>{t('Locked Quantity')}：</span>
             <input
-              placeholder="请输入锁仓数量" type="number"
-              value={null}
+              placeholder={t('Locked Quantity')} type="number"
+              value={amountInput}
               onChange={handlerInput}
               style={{ height: '40px', paddingLeft: '6px', borderRadius: '4px', marginRight: '10px', border: 'none', borderColor: '#ccc', margin: ua ? '10px 0 15px 15px' : '0' }} />
 
-            <span style={{ marginLeft:  ua ? '0' : '25px'}}>请选择月份：</span>
+            <span style={{ marginLeft:  ua ? '0' : '25px'}}>{t('select month')}：</span>
             <select style={{ marginRight: '35px', margin:  ua ? '15px' : '0' }} onChange={slectChange}>
-              <option value="请选择">请选择</option>
+              <option value="请选择">{t("please choose")}</option>
               <option value={3}>三月</option>
               <option value={6}>六月</option>
               <option value={9}>九月</option>
@@ -490,47 +492,51 @@ const Zpool = () => {
           <Button 
             style={{ marginTop: ua ? '20px' : '0' }} 
             onClick={!isAuthed1 ? authApprove : handlerLockPool}>
-            {!isAuthed1 ? '授权' : '锁定'}
+            {!isAuthed1 ? t('Auth') : t('locking')}
           </Button>
         </div>
-        <span style={{ width: '80%', textAlign: 'left' }}>订单列表:</span>
-        <div style={{ maxHeight: '450px', minHeight: '80px', overflowY: 'auto' }}>
-          <ul style={{ minHeight: '30px', margin: '10px 0' }}>
+        <span style={{ width: '80%', textAlign: 'left',marginBottom: '15px' }}>{t('Order List')}:</span>
+        <div style={{ maxHeight: '450px', minHeight: '100px', width: '80%' }}>
+          <ul style={{ minHeight: '30px', margin: '10px 0', maxHeight: '450px', overflowY: 'auto'}}>
             {
               orderData.length ?
                 orderData.map((item, index) => {
-                  return <li style={{ margin: '10px 0' }}>
-                    {/* <p style={{ width: '60%' }}> </p> */}
-                    <span>锁仓数量：{item[3]}，</span>
-                    <span style={{ marginLeft: '8px' }}>是否已解锁：{item[5] ? '已解锁' : '未解锁'}</span>
+                  return <li style={{ margin: '5px 0', width: ua ?'100%' : '80%',paddingLeft: '40px', display:'flex', flexWrap: ua ? 'wrap': 'nowrap'}}>
+                    <p style={{ width: '100%', marginBottom: ua ? '15px' : '0'}}> 
+                    <span style={{marginRight:'5px'}}>{index + 1}. </span>
+                    <span>{t('Locked Quantity')}：{item[3]}，</span>
+                    <span style={{ marginLeft: '8px' }}>{t('Is it unlocked')}：{item[5] ? t("unlocked") : t("not unlocked")}</span>
                     <span style={{ margin: '0 25px' }}>{item.status}</span>
+                    </p>
+                    
                     {
                       isAuthed2 ?
-                        <Button style={{ marginLeft: '10px', height: '35px' }}
+                        <Button style={{ marginLeft: '10px', height: '35px', width:'95px' }}
                           disabled={item[5]}
                           onClick={() => {
-                            doNoLock(index + 1)
+                            doNoLock(item[6])
                           }}
                         >
-                          解锁
+                          {t('unlock')}
                         </Button>
                         :
-                        <Button style={{ marginLeft: '10px', height: '35px' }}
+                        <Button style={{ marginLeft: '10px', height: '35px', width:'95px' }}
                           onClick={authunlock}
                         >
-                          授权
+                           {t('Auth')}
+    
                         </Button>
                     }
                   </li>
-                }) : '暂无订单列表!'
+                }) : <span style={{marginLeft: '25px'}}>{ t('No order list yet!')}</span>
             }
           </ul>
         </div>
-        <div style={{ marginTop: '50px', width: '80%', textAlign: 'left', display: 'flex', alignItems: 'center' }}>
-          <div style={{ width: '60%' }}>
-            <span style={{ margin: '60px 30px 0 0' }}>待领取奖励 CGC：{reward || '0.0000'}</span>
+        <div style={{ marginTop: '30px', width: '80%', textAlign: 'left', display: 'flex', alignItems: 'center' }}>
+          <div style={{ width: '70%' }}>
+            <span style={{ margin: '60px 30px 0 0' }}>{t('Rewards to be claimed')} CGC：{reward || '0.0000'}</span>
           </div>
-          <Button onClick={getRewardOne}>领取奖励</Button>
+          <Button onClick={getRewardOne}>{t('Receive award')}</Button>
         </div>
       </PoolLeft>
 

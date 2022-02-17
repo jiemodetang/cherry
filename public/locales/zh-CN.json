@@ -120,6 +120,7 @@
   "Total jackpot this round": "此回合的总累积奖池",
   "Collect Winnings": "收集奖金",
   "Buy Tickets": "购买彩票",
+  "Auth": "授权",
   "Harvest": "收割",
   "Select": "选择",
   "Winning Numbers This Round": "此回合的中奖号码",
@@ -1753,5 +1754,24 @@
   "Unwrap": "解包",
   "Go to IFO": "转到 IFO",
   "Phishing warning: ": "钓鱼警告：",
-  "please make sure you're visiting https://cocodao.net - check the URL carefully.": "请确保您访问的是 https://cocodao.net - 请仔细检查网址。"
+  "please make sure you're visiting https://cocodao.net - check the URL carefully.": "请确保您访问的是 https://cocodao.net - 请仔细检查网址。",
+  
+  "Locked Quantity": "锁仓数量",
+  "select month": "请选择月份",
+  "locking":"锁定",
+  "Order List": "订单列表",
+  "Is it unlocked": "是否已解锁",
+  "Rewards to be claimed": "待领取奖励",
+  "unlock": "解锁",
+  "Receive award": "领取奖励",
+  "unlocked": "已解锁",
+  "not unlocked": "未解锁",
+  "No order list yet!": "暂无订单!",
+  "please choose": "请选择",
+  "Please enter the lock-up amount":"请输入锁仓数量",
+  "Please link the wallet first":"请先链接钱包",
+  "Please select a month": "请选择月份"
+
+
+
 }
