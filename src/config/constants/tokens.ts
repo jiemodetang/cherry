@@ -34,7 +34,7 @@ export const mainnetTokens = {
   // 钱包  读取 cgc 余额
   cgc: new Token(
     MAINNET,
-    '0x1Fd69bFF6f8A6C6aDAe279837DD59a13976343F3',
+    '0xbB799BBA1B68c55C872269bA04bF119f5A94B187',
     18,
     'CGC',
     'CocoGame Coin',
@@ -45,7 +45,7 @@ export const mainnetTokens = {
   bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
   cake: new Token(
     MAINNET,
-    '0x1Fd69bFF6f8A6C6aDAe279837DD59a13976343F3',
+    '0xbB799BBA1B68c55C872269bA04bF119f5A94B187',
     18,
     'CAKE',
     'PancakeSwap Token',
@@ -233,7 +233,7 @@ export const mainnetTokens = {
   ),
   syrup: new Token(
     MAINNET,
-    '0x34d6aC9C992C5208111b065C0DFE229733D37Afb',
+    '0x4514F08D2Aab0980d0914BfF6d44cDA728B1926B',
     18,
     'SYRUP',
     'SyrupBar Token',

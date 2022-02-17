@@ -54,7 +54,7 @@ export const cakeSectionData: SalesSectionProps = {
     'CAKE token is at the heart of the PancakeSwap ecosystem. Buy it, win it, farm it, spend it, stake it... heck, you can even vote with it!',
   reverse: false,
   primaryButton: {
-    to: '/swap?outputCurrency=0x1Fd69bFF6f8A6C6aDAe279837DD59a13976343F3',
+    to: '/swap?outputCurrency=0xbB799BBA1B68c55C872269bA04bF119f5A94B187',
     text: 'Buy CAKE',
     external: false,
   },
