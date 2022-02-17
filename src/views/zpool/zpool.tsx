@@ -567,7 +567,7 @@ const Zpool = () => {
                     <p style={{ width: '100%', marginBottom: ua ? '15px' : '0'}}> 
                     <span style={{marginRight:'5px'}}>{index + 1}. </span>
                     <span>{t('Locked Quantity')}：{numberUtils.movePointLeft(item[2], 18)}，</span>
-                    <span style={{ marginLeft: '8px' }}>{t('Is it unlocked')}：{item[4] ? t("Unlockable") : item[3] ? t("unlocked") : t("not unlocked")}</span>
+                    <span style={{ marginLeft: '8px' }}>{t('Is it unlocked')}：{!item[4] ? t("Unlockable") : item[3] ? t("unlocked") : t("not unlocked")}</span>
                     <span style={{ margin: '0 25px' }}>{item.status}</span>
                     </p>
                     
