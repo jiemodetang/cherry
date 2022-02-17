@@ -19,7 +19,7 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'CGC',
     lpAddresses: {
       97: '0x9C21123D94b93361a29B2C2EFB3d5CD8B17e0A9e',
-      56: '0xCb597f83722fC551e0748b25B2a0ac613606bb62',
+      56: '0x4E697faa8c1bE1C4c3249FC47b2dc3d002B1F5Ef',
     },
     token: serializedTokens.syrup,
     quoteToken: serializedTokens.wbnb,
@@ -29,7 +29,7 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'CGC-USDT LP',
     lpAddresses: {
       97: '0x9C21123D94b93361a29B2C2EFB3d5CD8B17e0A9e',
-      56: '0xa0978E26edB119Ab8377aCA8815c72F0D20530eD',
+      56: '0x183a4c25077a3A35d86b34d8e5908Eb36444FC89',
     },
     token: serializedTokens.cgc,
     quoteToken: serializedTokens.usdt,
