@@ -29,7 +29,7 @@ const GetLpModal: React.FC<Partial<Props>> = ({ currency, onDismiss }) => {
           endIcon={<OpenNewIcon color="white" />}
           minWidth="100%" // Bypass the width="fit-content" on Links
         >
-          {t('Get %symbol%', { symbol: 'CAKE' })}
+          {t('Get %symbol%', { symbol: 'CGC' })}
         </Button>
       </ModalBody>
     </Modal>

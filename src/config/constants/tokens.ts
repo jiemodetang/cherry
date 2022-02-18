@@ -1797,11 +1797,11 @@ export const testnetTokens = {
     'Wrapped BNB',
     'https://www.binance.com/',
   ),
-  cake: new Token(
+  cgc: new Token(
     TESTNET,
     '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe',
     18,
-    'CAKE',
+    'CGC',
     'PancakeSwap Token',
     'https://pancakeswap.finance/',
   ),

@@ -92,10 +92,10 @@ const IfoSteps: React.FC<Props> = ({ ifo, walletIfoData }) => {
         return (
           <CardBody>
             <Heading as="h4" color="secondary" mb="16px">
-              {t('Get %symbol%', { symbol: 'CAKE' })}
+              {t('Get %symbol%', { symbol: 'CGC' })}
             </Heading>
             <Text color="textSubtle" small>
-              {t('You’ll spend CAKE to buy IFO sale tokens.')}
+              {t('You’ll spend CGC to buy IFO sale tokens.')}
             </Text>
             <Button
               as={Link}
@@ -104,7 +104,7 @@ const IfoSteps: React.FC<Props> = ({ ifo, walletIfoData }) => {
               endIcon={<OpenNewIcon color="white" />}
               mt="16px"
             >
-              {t('Get %symbol%', { symbol: 'CAKE' })}
+              {t('Get %symbol%', { symbol: 'CGC' })}
             </Button>
           </CardBody>
         )

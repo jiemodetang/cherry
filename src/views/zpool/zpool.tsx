@@ -35,9 +35,8 @@ const data = [
 const PoolLeft = styled.div`
     margin-top: 15px;
     border-radius: 8px;
-    padding: 15px;
+    padding:  15px 15px 40px;
     display: flex;
-    align-items: center;
     flex-direction: column;
     width: 100%;
     min-height:500px;
@@ -68,6 +67,26 @@ const listDiv = styled.div`
     display: flex;
     justify-content: center;
     padding-bottom: 30px;
+`;
+
+const Fdiv1 = styled.div`
+  width:100%;
+  display:flex;
+  align-items: center;
+  padding: 10px 20px;
+  justify-content:space-between;
+`;
+
+const TokenDiv = styled.div`
+  width: 44%;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  padding-bottom: 30px;
+  border: 2px solid rgb(235, 202, 215);
+  border-radius: 16px;
+  padding: 20px;
+  height:142px;
 `;
 
 const Zpool = () => {
@@ -523,42 +542,42 @@ const Zpool = () => {
 
   return (
     <PoolDiv style={ua ? { flexDirection: 'column', alignItems: 'center' } : null}>
-      <PoolLeft style={{ width: ua ? '330px' : '80%' }}>
-        <div style={{ width: '80%', marginTop: '15px' }}>
+      <PoolLeft style={{ width: ua ? '330px' : '80%', padding: ua ? '0' : '20px' }}>
+        <Fdiv1 style={{flexDirection : ua ? 'column' : 'unset'}}>
+          <TokenDiv style={{width: ua ? '100%':'44%'}}>
             <span>stakeToken {t('Balance')}：{stakeTokenB}</span>
-            <span style={{marginLeft:'90px'}}>veToken {t('Balance')}：{veTokenB}</span>
+            <span style={{marginTop: '25px'}}>veToken {t('Balance')}：{veTokenB}</span>
+          </TokenDiv>
+          <div style={{flexDirection : ua ? 'column': 'column', marginTop: ua ?'10px': '0', width: ua ? '100%' : '50%', padding:'20px', textAlign: 'left', display: 'flex', alignItems: ua ? '' : 'center', border: '2px solid rgb(235, 202, 215)', borderRadius: '16px'}}>
+            <div style={{ width: '100%', display:'flex', alignItems: ua ?'unset':'center', flexDirection: ua ? 'column' : 'unset' }}>
+              <span>{t('Locked Quantity')}：</span>
+              <input
+                placeholder={t('Locked Quantity')} type="number"
+                value={amountInput}
+                onChange={handlerInput}
+                style={{ height: '40px', paddingLeft: '6px', borderRadius: '4px', marginRight: '10px', border: 'none', borderColor: '#ccc', margin: ua ? '10px 0 15px 15px' : '0' }} />
+              <span style={{ marginLeft:  ua ? '0' : '25px'}}>{t('select month')}：</span>
+              <select style={{ marginRight: '35px', margin:  ua ? '15px' : '0' }} onChange={slectChange}>
+                <option value="请选择">{t("please choose")}</option>
+                <option value={3}>三月</option>
+                <option value={6}>六月</option>
+                <option value={9}>九月</option>
+                <option value={12}>十二月</option>
+                <option value={15}>十五月</option>
+                <option value={18}>十八月</option>
+              </select>
+            </div>
+            <Button 
+              style={{ marginTop: ua ? '20px' : '10px', marginRight:'auto' }} 
+              onClick={!isAuthed1 ? authApprove : handlerLockPool}>
+              {!isAuthed1 ? t('Auth') : t('locking')}
+            </Button>
           </div>
-        <div style={{flexDirection : ua ? 'column': 'unset', margin: '10px 0 20px', width: '80%', textAlign: 'left', display: 'flex', alignItems: ua ? '' : 'center'}}>
-         
-          <div style={{ width: '70%' }}>
-            <span>{t('Locked Quantity')}：</span>
-            <input
-              placeholder={t('Locked Quantity')} type="number"
-              value={amountInput}
-              onChange={handlerInput}
-              style={{ height: '40px', paddingLeft: '6px', borderRadius: '4px', marginRight: '10px', border: 'none', borderColor: '#ccc', margin: ua ? '10px 0 15px 15px' : '0' }} />
+        </Fdiv1>
 
-            <span style={{ marginLeft:  ua ? '0' : '25px'}}>{t('select month')}：</span>
-            <select style={{ marginRight: '35px', margin:  ua ? '15px' : '0' }} onChange={slectChange}>
-              <option value="请选择">{t("please choose")}</option>
-              <option value={3}>三月</option>
-              <option value={6}>六月</option>
-              <option value={9}>九月</option>
-              <option value={12}>十二月</option>
-              <option value={15}>十五月</option>
-              <option value={18}>十八月</option>
-            </select>
-          </div>
-          <Button 
-            style={{ marginTop: ua ? '20px' : '0' }} 
-            onClick={!isAuthed1 ? authApprove : handlerLockPool}>
-            {!isAuthed1 ? t('Auth') : t('locking')}
-          </Button>
-        </div>
-        
-        <span style={{height: '2px', width: '100%', background: '#eee'}}></span> {/* eslint-disable-line */}
-        <span style={{ width: '80%', textAlign: 'left',margin: '20px 0 15px' }}>{t('Order List')}:</span>
-        <div style={{ maxHeight: '450px', minHeight: '100px', width: '80%' }}>
+        <span style={{height: '2px', width: '100%', background: '#eee', marginTop: '20px'}}></span> {/* eslint-disable-line */}
+        <span style={{ width: '80%', textAlign: 'left',margin: '20px 0 15px',paddingLeft: '20px' }}>{t('Order List')}:</span>
+        <div style={{ maxHeight: '450px', minHeight: '100px', width: '80%', marginLeft: '25px', padding: '15px', border: '2px solid rgb(235, 202, 215)', borderRadius: '16px'}}>
           <ul style={{ minHeight: '30px', margin: '10px 0', maxHeight: '450px', overflowY: 'auto'}}>
             {
               orderData.length ?
@@ -590,17 +609,20 @@ const Zpool = () => {
                         </Button>
                     }
                   </li>
-                }) : <span style={{marginLeft: '25px'}}>{ t('No order list yet!')}</span>
+                }) : <span style={{marginLeft: '45px'}}>{ t('No order list yet!')}</span>
             }
           </ul>
         </div>
-        <span style={{height: '2px', width: '100%', background: '#eee'}}></span> {/* eslint-disable-line */}
-        <div style={{ marginTop: '20px', width: '80%', textAlign: 'left', display: 'flex', alignItems: 'center' }}>
-          <div style={{ width: '70%' }}>
-            <span style={{ margin: '60px 30px 0 0' }}>{t('Rewards to be claimed')} CGC：{reward || '0.0000'}</span>
+        <span style={{height: '2px', width: '100%', background: '#eee', marginTop: '20px'}}></span> {/* eslint-disable-line */}
+        <div style={{paddingLeft: ua ? '0' : '18px', width: '100%'}}>
+          <div style={{ marginTop: '20px', width: ua ? '90%':'44%',padding: '20px', marginLeft : ua ? '20px': '', textAlign: 'left', display: 'flex',flexDirection: 'column', border: '2px solid rgb(235, 202, 215)', borderRadius: '16px'}}>
+            <div>
+              <span style={{ margin: '60px 30px 0 0' }}>{t('Rewards to be claimed')} CGC：{reward || '0.0000'}</span>
+            </div>
+            <Button onClick={getRewardOne} style={{marginTop: '20px', width:'200px'}}>{t('Receive award')}</Button>
           </div>
-          <Button onClick={getRewardOne}>{t('Receive award')}</Button>
         </div>
+        
       </PoolLeft>
 
       {/* <PoolRight style={{width: ua ? '300px' : '40%'}}>
