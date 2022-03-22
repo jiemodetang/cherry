@@ -92,9 +92,9 @@ const App: React.FC = () => {
               <Farms />
             </Route>
             {/* 新增矿池 */}
-            <Route path="/pool">
+            {/* <Route path="/pool">
               <Pool />
-            </Route>
+            </Route> */}
             <Route path="/pools">
               <Pools />
             </Route>

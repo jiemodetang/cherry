@@ -53,10 +53,10 @@
     {
       "name": "CocoGame Coin",
       "symbol": "CGC",
-      "address": "0x4E697faa8c1bE1C4c3249FC47b2dc3d002B1F5Ef",
+      "address": "0xD36a623A74b8547c9c9dD06A41Fb0EcE5a02e1D4",
       "chainId": 56,
       "decimals": 18,
-      "logoURI": "https://pancakeswap.finance/images/tokens/0x4E697faa8c1bE1C4c3249FC47b2dc3d002B1F5Ef.png"
+      "logoURI": "https://pancakeswap.finance/images/tokens/0xD36a623A74b8547c9c9dD06A41Fb0EcE5a02e1D4.png"
     },
     {
       "name": "Venus",

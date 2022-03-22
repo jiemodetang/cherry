@@ -19,7 +19,7 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'CGC',
     lpAddresses: {
       97: '0x9C21123D94b93361a29B2C2EFB3d5CD8B17e0A9e',
-      56: '0x4E697faa8c1bE1C4c3249FC47b2dc3d002B1F5Ef',
+      56: '0xD36a623A74b8547c9c9dD06A41Fb0EcE5a02e1D4',
     },
     token: serializedTokens.syrup,
     quoteToken: serializedTokens.wbnb,
