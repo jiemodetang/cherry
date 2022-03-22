@@ -20,6 +20,6 @@ export default {
     address: '0xf2d601e289886FADeaC54Edca6a4EF9FA001aD1E',
   },
   LPTOKEN: {
-    address: '0x183a4c25077a3A35d86b34d8e5908Eb36444FC89',
+    address: '0xceB55c935a8C70130c465f20134E88275eeB5f3a',
   }
 }
