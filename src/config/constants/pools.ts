@@ -10,7 +10,7 @@ const pools: SerializedPoolConfig[] = [
     earningToken: serializedTokens.cake,
     contractAddress: {
       97: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',
-      56: '0x070B263eE56596EaE2381AdDd2c3bC270a575E1e',
+      56: '0x764679c398Af49672c793633bd671C92b12F1D67',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,

@@ -1,26 +1,26 @@
 describe('Remove Liquidity', () => {
   it('redirects from address-address to address/address', () => {
-    cy.visit('/remove/0xffB3a5dA757641F2cA9DC1Cb3d85F94cF968fe72-0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56')
+    cy.visit('/remove/0x6dC4aA8e2F8826E2DE6BD1Fad8D5451aebB5b7D3-0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56')
     cy.url().should(
       'contain',
-      '/remove/0xffB3a5dA757641F2cA9DC1Cb3d85F94cF968fe72/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
+      '/remove/0x6dC4aA8e2F8826E2DE6BD1Fad8D5451aebB5b7D3/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
     )
   })
 
   it('bnb-cake remove', () => {
-    cy.visit('/remove/BNB/0xffB3a5dA757641F2cA9DC1Cb3d85F94cF968fe72')
+    cy.visit('/remove/BNB/0x6dC4aA8e2F8826E2DE6BD1Fad8D5451aebB5b7D3')
     cy.get('#remove-liquidity-tokena-symbol').should('contain.text', 'BNB')
     cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'CAKE')
   })
 
   it('cake-bnb remove', () => {
-    cy.visit('/remove/0xffB3a5dA757641F2cA9DC1Cb3d85F94cF968fe72/BNB')
+    cy.visit('/remove/0x6dC4aA8e2F8826E2DE6BD1Fad8D5451aebB5b7D3/BNB')
     cy.get('#remove-liquidity-tokena-symbol').should('contain.text', 'CAKE')
     cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'BNB')
   })
 
   it('loads the two correct tokens', () => {
-    cy.visit('/remove/0xffB3a5dA757641F2cA9DC1Cb3d85F94cF968fe72/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56')
+    cy.visit('/remove/0x6dC4aA8e2F8826E2DE6BD1Fad8D5451aebB5b7D3/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56')
     cy.get('#remove-liquidity-tokena-symbol').should('contain.text', 'CAKE')
     cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'BUSD')
   })
@@ -32,13 +32,13 @@ describe('Remove Liquidity', () => {
   })
 
   it('does not crash if token is duplicated', () => {
-    cy.visit('/remove/0xffB3a5dA757641F2cA9DC1Cb3d85F94cF968fe72/0xffB3a5dA757641F2cA9DC1Cb3d85F94cF968fe72')
+    cy.visit('/remove/0x6dC4aA8e2F8826E2DE6BD1Fad8D5451aebB5b7D3/0x6dC4aA8e2F8826E2DE6BD1Fad8D5451aebB5b7D3')
     cy.get('#remove-liquidity-tokena-symbol').should('contain.text', 'CAKE')
     cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'CAKE')
   })
 
   it('token not in storage is loaded', () => {
-    cy.visit('/remove/0xD74b782E05AA25c50e7330Af541d46E18f36661C/0xffB3a5dA757641F2cA9DC1Cb3d85F94cF968fe72')
+    cy.visit('/remove/0xD74b782E05AA25c50e7330Af541d46E18f36661C/0x6dC4aA8e2F8826E2DE6BD1Fad8D5451aebB5b7D3')
     cy.get('#remove-liquidity-tokena-symbol').should('contain.text', 'QUACK')
     cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'CAKE')
   })
