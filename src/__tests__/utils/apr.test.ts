@@ -3,7 +3,7 @@ import { getPoolApr, getFarmApr } from 'utils/apr'
 import { BIG_TEN, BIG_ZERO } from 'utils/bigNumber'
 
 jest.mock('../../config/constants/lpAprs.json', () => ({
-  '0x6272D92d4760c174f08Ef6dC6e92a46fbC3d0ffc': 10.5,
+  '0xAd95ADa241F62300E265AbDE39379cF7Af9CD0bC': 10.5,
 }))
 
 describe('getPoolApr', () => {
@@ -42,7 +42,7 @@ describe('getFarmApr', () => {
       BIG_TEN,
       new BigNumber(1),
       new BigNumber(100000),
-      '0x6272D92d4760c174f08Ef6dC6e92a46fbC3d0ffc',
+      '0xAd95ADa241F62300E265AbDE39379cF7Af9CD0bC',
     )
     expect(cakeRewardsApr).toEqual(4204800)
     expect(lpRewardsApr).toEqual(10.5)
