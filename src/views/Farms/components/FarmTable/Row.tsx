@@ -153,9 +153,9 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
               </CellLayout>
             </EarnedMobileCell>
             <AprMobileCell>
-              <CellLayout label={t('APR')}>
+              {/* <CellLayout label={t('APR')}>
                 <Apr {...props.apr} hideButton />
-              </CellLayout>
+              </CellLayout> */}
             </AprMobileCell>
           </tr>
         </td>

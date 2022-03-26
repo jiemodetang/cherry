@@ -407,10 +407,10 @@ const Farms: React.FC = () => {
                     label: t('Hot'),
                     value: 'hot',
                   },
-                  {
-                    label: t('APR'),
-                    value: 'apr',
-                  },
+                  // {
+                  //   label: t('APR'),
+                  //   value: 'apr',
+                  // },
                   {
                     label: t('Multiplier'),
                     value: 'multiplier',
@@ -419,10 +419,10 @@ const Farms: React.FC = () => {
                     label: t('Earned'),
                     value: 'earned',
                   },
-                  {
-                    label: t('Liquidity'),
-                    value: 'liquidity',
-                  },
+                  // {
+                  //   label: t('Liquidity'),
+                  //   value: 'liquidity',
+                  // },
                 ]}
                 onOptionChange={handleSortOptionChange}
                 className='inputD84D84'
